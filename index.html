@@ -3,13 +3,37 @@
     <link rel="stylesheet" href="bootstrap.css" />
   </head>
   <body>
-    <nav class="nav justify-content-center">
-      <a href="#" class="nav-link active">Home</a>
-      <a href="#" class="nav-link ">Link1</a>
-      <a href="#" class="nav-link ">LInk2</a>
-      <a href="#" class="nav-link disabled">Link3</a>
-    </nav>
-    <script src="jQuery.js"></script>
-    <script src="bootstrap.js"></script>
+    <ul class="nav nav-tabs" role="tablist" id="myTab">
+      <li class="nav-item">
+        <a
+          class="nav-link active"
+          id="home-tab"
+          data-toggle="tab"
+          href="#home"
+          role="tab"
+          aria-controls="home"
+          aria-selected="true"
+          >Home</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          id="profile-tab"
+          data-toggle="tab"
+          href="#profile"
+          role="tab"
+          aria-controls="profile"
+          aria-selected="false"
+          >Profile</a
+        >
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
+      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+    </div>
+    <script src="jQuery.min.js"></script>
+    <script src="bootstrap.bundle.min.js"></script>
   </body>
 </html>
