@@ -16,3 +16,64 @@
   -o-background-size: cover;
   background-size: cover;
 }
+
+.social-icons a {
+  display: inline-block;
+  height: 3.5rem;
+  width: 3.5rem;
+  background-color: #495057;
+  color: #fff !important;
+  border-radius: 100%;
+}
+
+.social-icon i {
+  position: relative;
+  top: 0.8rem;
+  font-size: 1.75rem;
+}
+
+.program-icon:hover {
+  width: 0;
+  height: 0;
+  padding: 64px 0 0 64px;
+}
+
+.program-icons .icon-csharp {
+  background: url(/img/csharp/csharp_hover.png);
+}
+
+.program-icons .icon-kotlin {
+  background: url(/img/kotlin/Kotlin_hover.png);
+}
+
+.program-icons .icon-js {
+  background: url(/img/js/js_hover.png);
+}
+
+.program-icons .icon-ts {
+  background: url(/img/ts/ts_hover.png);
+}
+
+.program-icons .icon-html {
+  background: url(/img/html/html-5-icon_hover.png);
+}
+
+.program-icons .icon-css {
+  background: url(/img/css/css_hover.png);
+}
+
+.program-icons .icon-xml {
+  background: url(/img/xml/xml_hover.png);
+}
+
+.program-icons .icon-vue {
+  background: url(/img/vue/vuejs_hover.png);
+}
+
+.social-icons a:last-child {
+  margin-right: 0;
+}
+
+.social-icons a:hover {
+  background-color: #62686e;
+}
