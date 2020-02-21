@@ -11,5 +11,18 @@
       "Remote data using the NumbersAPI",
       "Animations using Lottie Animation"
     ]
+  },
+  "hubgames": {
+    "imgSrc": "/img/projects/gamehub.png",
+    "title": "HubGames",
+    "description": "Developed in Unity Engine, this is the first hobby project i finished. It contains 4 games: Snake, Breakout, MatchThree and TicTacToe. It also contains a menu from where you can pick the game you want to play. Programmed in C#, this project was meant to try to out some new techniques i had learned.",
+    "subtitle": "Techniques",
+    "detailslist": [
+      "Singleton Pattern",
+      "Use of Generics",
+      "Large use of events",
+      "Large use of anonymous functions/lambda functions",
+      "Large ammount of grid usage"
+    ]
   }
 }
