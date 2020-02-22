@@ -1,6 +1,7 @@
 {
   "mathrecycler": {
-    "imgSrc": "/img/projects/mathrecycler.png",
+    "imgSrc": "/img/projects/mathrecycler_main.png",
+    "imgSrcLittle": "/img/projects/mathrecycler_little.png",
     "title": "MathRecycler",
     "description": "Developed with kotlin in android studio, the mathrecycler is a simple game where you make decisions swiping a math statement right or left, asserting it to be true or false. You are able to customize difficulty and math operator and look at played games in your history list.",
     "subtitle": "Libraries and Techniques",
@@ -13,7 +14,8 @@
     ]
   },
   "hubgames": {
-    "imgSrc": "/img/projects/gamehub.png",
+    "imgSrc": "/img/projects/hubgames_main.png",
+    "imgSrcLittle": "/img/projects/hubgames_little.png",
     "title": "HubGames",
     "description": "Developed in Unity Engine, this is the first hobby project i finished. It contains 4 games: Snake, Breakout, MatchThree and TicTacToe. It also contains a menu from where you can pick the game you want to play. Programmed in C#, this project was meant to try to out some new techniques i had learned.",
     "subtitle": "Techniques",
@@ -24,5 +26,13 @@
       "Large use of anonymous functions/lambda functions",
       "Large ammount of grid usage"
     ]
+  },
+  "cms": {
+    "imgSrc": "/img/projects/cms_main.png",
+    "imgSrcLittle": "/img/projects/cms_little.png",
+    "title": "Content Management System",
+    "description": "Made using github pages this project was my first ever web development project. It was part of a 3 part system architecture. It's purpose was to upload 3D models to the github repository through the github API. Another website could then fetch these models and show them in Augmented Reality on the web",
+    "subtitle": "Libraries",
+    "detailslist": ["Vue", "Github Api", "Bootstrap"]
   }
 }

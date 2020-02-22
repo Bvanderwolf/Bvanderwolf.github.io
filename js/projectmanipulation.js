@@ -8,7 +8,7 @@ async function LoadDefaultInfo() {
   const main = json[keys[0]];
 
   //set all project info related elements
-  attachEventListeners();
+  addEventListeners();
   setImageSources(getImageSources(json, keys));
   setTitle(main.title);
   setDescription(main.description);
@@ -17,36 +17,13 @@ async function LoadDefaultInfo() {
 }
 
 async function onChangeInfo(element) {
-  //load json file
   const response = await fetch("/projectinfo.json");
   const json = await response.json();
 
-  //get main img element
-  const mainImg = document.getElementById("projectinfo-img");
+  const newMainData = element.dataset.project;
 
-  //get their current data value
-  const maindata = mainImg.dataset.project;
-  const otherdata = element.dataset.project;
-
-  //get the src values based on that
-  const srcList = getImageSources(json, Object.keys(json));
-  const srcArray = [];
-  let mainSrc;
-  let otherSrc;
-  for (let i = 0; i < srcList.length; i++) {
-    if (!srcList[i]) continue;
-    if (srcList[i].key == maindata) {
-      mainSrc = srcList[i];
-    } else if (srcList[i].key == otherdata) {
-      otherSrc = srcList[i];
-    } else {
-      srcArray.push(srcList[i]);
-    }
-  }
-  srcArray.unshift(mainSrc);
-  srcArray.unshift(otherSrc);
-
-  const main = json[otherSrc.key];
+  const srcArray = getShiftedSources(getImageSources(json, Object.keys(json)), newMainData);
+  const main = json[srcArray[0].key];
 
   setImageSources(srcArray);
   setTitle(main.title);
@@ -55,7 +32,7 @@ async function onChangeInfo(element) {
   setDetailsList(main.detailslist);
 }
 
-function attachEventListeners() {
+function addEventListeners() {
   const otherImgs = document.getElementsByClassName("projectinfo-other");
   for (const img of otherImgs) {
     img.addEventListener("click", () => {
@@ -64,11 +41,28 @@ function attachEventListeners() {
   }
 }
 
+function getShiftedSources(original, newmain_key) {
+  const srcArray = [];
+  let newMain;
+  //store new main object and add others to list
+  for (let i = 0; i < original.length; i++) {
+    if (!original[i]) continue;
+    if (original[i].key == newmain_key) {
+      newMain = original[i];
+    } else {
+      srcArray.push(original[i]);
+    }
+  }
+  //make sure the new main is the first element in the array
+  srcArray.unshift(newMain);
+  return srcArray;
+}
+
 function getImageSources(json, keys) {
   let srcArray = [];
 
   if (!json || !keys) return srcArray;
-
+  //add key value objects to src array if the sources is valid
   for (let i = 0; i < keys.length; i++) {
     const src = json[keys[i]].imgSrc;
     if (src) {
@@ -81,13 +75,14 @@ function getImageSources(json, keys) {
 
 function setImageSources(srcArray) {
   if (srcArray.length == 0) return;
-
+  //set main img src and project dateset
   const mainImg = document.getElementById("projectinfo-img");
   if (mainImg) {
     mainImg.dataset.project = srcArray[0].key;
     mainImg.src = srcArray[0].imgSrc;
   }
 
+  //set other project image sources and project datasets if there are any
   if (srcArray.length == 1) return;
   const otherImgs = document.getElementsByClassName("projectinfo-other");
   for (let srci = 1, imgi = 0; srci < srcArray.length; srci++, imgi++) {
@@ -131,6 +126,7 @@ function setDetailsList(ls) {
   const ulElement = document.getElementById("projectinfo-detailslist");
   if (!ulElement) return;
 
+  //remove current children if it has any
   if (ulElement.hasChildNodes()) {
     while (ulElement.firstChild) {
       ulElement.removeChild(ulElement.lastChild);
