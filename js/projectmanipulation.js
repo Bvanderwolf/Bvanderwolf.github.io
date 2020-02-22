@@ -3,17 +3,17 @@ async function LoadDefaultInfo() {
   const response = await fetch("/projectinfo.json");
   const json = await response.json();
 
-  //first entry is the default entry for the page
+  //first entry is the main entry for the page
   const keys = Object.keys(json);
-  const dft = json[keys[0]];
+  const main = json[keys[0]];
 
   //set all project info related elements
   attachEventListeners();
   setImageSources(getImageSources(json, keys));
-  setTitle(dft.title);
-  setDescription(dft.description);
-  setSubTitle(dft.subtitle);
-  setDetailsList(dft.detailslist);
+  setTitle(main.title);
+  setDescription(main.description);
+  setSubTitle(main.subtitle);
+  setDetailsList(main.detailslist);
 }
 
 async function onChangeInfo(element) {
@@ -27,6 +27,32 @@ async function onChangeInfo(element) {
   //get their current data value
   const maindata = mainImg.dataset.project;
   const otherdata = element.dataset.project;
+
+  //get the src values based on that
+  const srcList = getImageSources(json, Object.keys(json));
+  const srcArray = [];
+  let mainSrc;
+  let otherSrc;
+  for (let i = 0; i < srcList.length; i++) {
+    if (!srcList[i]) continue;
+    if (srcList[i].key == maindata) {
+      mainSrc = srcList[i];
+    } else if (srcList[i].key == otherdata) {
+      otherSrc = srcList[i];
+    } else {
+      srcArray.push(srcList[i]);
+    }
+  }
+  srcArray.unshift(mainSrc);
+  srcArray.unshift(otherSrc);
+
+  const main = json[otherSrc.key];
+
+  setImageSources(srcArray);
+  setTitle(main.title);
+  setDescription(main.description);
+  setSubTitle(main.subtitle);
+  setDetailsList(main.detailslist);
 }
 
 function attachEventListeners() {
@@ -104,6 +130,12 @@ function setDetailsList(ls) {
 
   const ulElement = document.getElementById("projectinfo-detailslist");
   if (!ulElement) return;
+
+  if (ulElement.hasChildNodes()) {
+    while (ulElement.firstChild) {
+      ulElement.removeChild(ulElement.lastChild);
+    }
+  }
 
   //if list and element are truthy, add truthy values from list to element as li elements
   for (let i = 0; i < ls.length; i++) {
