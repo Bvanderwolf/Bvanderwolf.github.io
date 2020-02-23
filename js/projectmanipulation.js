@@ -3,6 +3,7 @@ async function LoadDefaultInfo() {
   const response = await fetch("/projectinfo.json");
   const json = await response.json();
 
+  if (!json) return;
   //first entry is the main entry for the page
   const keys = Object.keys(json);
   const main = json[keys[0]];
@@ -17,8 +18,12 @@ async function LoadDefaultInfo() {
 }
 
 async function onChangeInfo(element) {
+  if (!element || !element.dataset.project) return;
+
   const response = await fetch("/projectinfo.json");
   const json = await response.json();
+
+  if (!json) return;
 
   const newMainData = element.dataset.project;
 
@@ -34,6 +39,8 @@ async function onChangeInfo(element) {
 
 function addEventListeners() {
   const otherImgs = document.getElementsByClassName("projectinfo-other");
+  if (!otherImgs) return;
+
   for (const img of otherImgs) {
     img.addEventListener("click", () => {
       onChangeInfo(img);
@@ -43,6 +50,8 @@ function addEventListeners() {
 
 function getShiftedSources(original, newmain_key) {
   const srcArray = [];
+  if (!original || !newmain_key) return srcArray;
+
   let newMain;
   //store new main object and add others to list
   for (let i = 0; i < original.length; i++) {
