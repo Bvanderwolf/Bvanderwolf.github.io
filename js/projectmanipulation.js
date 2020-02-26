@@ -75,7 +75,7 @@ function getImageSources(json, keys) {
   for (let i = 0; i < keys.length; i++) {
     const src = json[keys[i]].imgSrc;
     if (src) {
-      srcArray.push({key: keys[i], imgSrc: src});
+      srcArray.push({ key: keys[i], imgSrc: src });
     }
   }
 

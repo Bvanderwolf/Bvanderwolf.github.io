@@ -3,9 +3,10 @@
     <link rel="shortcut icon" href="/img/devicon.png" />
     <link rel="stylesheet" href="/css/bootstrap.css" />
     <link rel="stylesheet" href="/css/custom.css" />
+    <link rel="stylesheet" href="/fontawesome/all.css" />
   </head>
-  <body onload="LoadDefaultInfo()">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow sticky-top">
+  <body class="standard-background">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow mb-5">
       <div class="container">
         <a class="navbar-brand" href="/index.html">Bvanderwolf</a>
         <button
@@ -27,7 +28,7 @@
                 <span class="sr-only">(current)</span>
               </a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="projects.html">Projects</a>
             </li>
             <li class="nav-item dropdown">
@@ -38,52 +39,26 @@
                 <li><a class="nav-link" href="#">CMS</a></li>
               </ul>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
               <a class="nav-link" href="contact.html">Contact</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-    <div class="my-4"></div>
-    <!-- Full Page Image Header with Vertically Centered Content -->
-    <!-- Page Content -->
+
     <div class="container">
-      <!-- Portfolio Item Row -->
-      <div id="projectinfo" class="row">
-        <div class="col-md-8">
-          <img id="projectinfo-img" class="rounded img-fluid" data-project="" src="" alt="" />
-        </div>
-        <div class="col-md-4">
-          <h3 id="projectinfo-title" class="my-3"></h3>
-          <p id="projectinfo-description"></p>
-          <h3 id="projectinfo-subtitle" class="my-3"></h3>
-          <ul id="projectinfo-detailslist"></ul>
+      <div class="card" style="width: auto;">
+        <div class="card-body">
+          <div class="pre-scrollable">
+            <script src="https://gist.github.com/Bvanderwolf/58b0563b177562c4c31b235ae03f04e7.js"></script>
+          </div>
         </div>
       </div>
-      <!-- /.row -->
-
-      <!-- Related Projects Row -->
-      <h3 class="my-4">Other Projects</h3>
-
-      <div class="row">
-        <div class="col-md-3 col-sm-6 mb-4">
-          <a href="#">
-            <img class="rounded img-fluid projectinfo-other" src="http://placehold.it/500x300" data-project="" alt="" />
-          </a>
-        </div>
-
-        <div class="col-md-3 col-sm-6 mb-4">
-          <a href="#">
-            <img class="rounded img-fluid projectinfo-other" src="http://placehold.it/500x300" data-project="" alt="" />
-          </a>
-        </div>
-      </div>
-      <!-- /.row -->
     </div>
-    <!-- /.container -->
+
     <script src="/js/jQuery.min.js"></script>
     <script src="/js/bootstrap.bundle.min.js"></script>
-    <script src="/js/projectmanipulation.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?lang=kotlin&amp;skin=sunburst"></script>
   </body>
 </html>
