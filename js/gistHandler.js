@@ -5,12 +5,12 @@ const maxGists = 5;
 const projects = ["MathRecycler", "HubGames", "CMS", "BoatGame"];
 const gistStoreKey = "gists";
 
-async function Start(fromPage) {
+async function StartGistHandlingASync(fromPage) {
   const gistHandler = new GistHandler();
   let projectGists = gistHandler.GetProjectGists(fromPage);
 
   if (projectGists.length == 0) {
-    projectGists = await gistHandler.LoadGists(fromPage);
+    projectGists = await gistHandler.LoadGistsASync(fromPage);
     console.log("loading gists");
     if (projectGists.length == 0) {
       console.log("failed loading gists");
@@ -25,14 +25,14 @@ async function Start(fromPage) {
   for (let i = 0; i < items.length; i++) {
     const title = items[i].getElementsByClassName("card-title")[0];
     const description = items[i].getElementsByClassName("card-text")[0];
-    await gistHandler.SetupHtmlElements(title, description, projectGists[i]);
+    await gistHandler.SetupHtmlElementsASync(title, description, projectGists[i]);
   }
 
   //add script tags with a source based on embedUrl + gistID + jsExt
 }
 
 class GistHandler {
-  async LoadGists(page) {
+  async LoadGistsASync(page) {
     //fetch git list from github api
     const response = await fetch(gistURL);
     const json = await response.json();
@@ -79,7 +79,7 @@ class GistHandler {
     return a;
   }
 
-  async SetupHtmlElements(titleEl, descriptionEl, projectGist) {
+  async SetupHtmlElementsASync(titleEl, descriptionEl, projectGist) {
     if (!projectGist) return;
     if (titleEl) {
       const filename = Object.values(projectGist.files)[0].filename;
