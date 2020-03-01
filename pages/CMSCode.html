@@ -5,8 +5,8 @@
     <link rel="stylesheet" href="/css/custom.css" />
     <link rel="stylesheet" href="/fontawesome/all.css" />
   </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
+  <body class="standard-background" onload="Start('CMS')">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow mb-5">
       <div class="container">
         <a class="navbar-brand" href="/index.html">Bvanderwolf</a>
         <button
@@ -36,11 +36,11 @@
               <ul class="dropdown-menu">
                 <li><a class="nav-link" href="MathRecyclerCode.html">MathRecycler</a></li>
                 <li><a class="nav-link" href="HubGamesCode.html">HubGames</a></li>
-                <li><a class="nav-link" href="CMSCode.html">CMS</a></li>
+                <li><a class="nav-link active" href="CMSCode.html">CMS</a></li>
                 <li><a class="nav-link" href="BoatGameCode.html">BoatGame</a></li>
               </ul>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="contact.html">Contact</a>
             </li>
           </ul>
@@ -48,31 +48,46 @@
       </div>
     </nav>
 
-    <!-- Full Page Image Header with Vertically Centered Content -->
-    <header class="masthead">
-      <div class="container">
-        <div class="row h-50 align-items-center">
-          <div class="col text-center">
-            <h2 class="display-4 mb-5">Contact Info</h2>
+    <div class="container w-75">
+      <div id="code-carousel" class="carousel slide" data-ride="carousel" data-interval="false">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text"></p>
+                <div class="pre-scrollable">
+                  <script src="https://gist.github.com/Bvanderwolf/69f37196eeac6ee1a4bf1ef14514a090.js"></script>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col text-center">
-            <a class="contact-icon mb-3" href="https://www.linkedin.com/in/benjamin-van-der-wolf-742305160/" target="_blank">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-            <h4 class="display-4" style="color: black;">LinkedIn</h4>
-          </div>
-          <div class="col text-center">
-            <a class="contact-icon mb-3" href="https://www.github.com/Bvanderwolf" target="_blank">
-              <i class="fab fa-github"></i>
-            </a>
-            <h4 class="display-4" style="color: black;">Github</h4>
+          <div class="carousel-item">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text"></p>
+                <div class="pre-scrollable">
+                  <script src="https://gist.github.com/Bvanderwolf/bceba379ee02d00dfd53a9868c375b8c.js"></script>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </header>
+      <a class="carousel-control-prev" href="#code-carousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#code-carousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+
     <script src="/js/jQuery.min.js"></script>
     <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?lang=kotlin&amp;skin=sunburst"></script>
+    <script src="/js/gistHandler.js"></script>
   </body>
 </html>
