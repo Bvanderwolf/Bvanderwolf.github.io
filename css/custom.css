@@ -14,6 +14,13 @@
   background-repeat: no-repeat;
 }
 
+.background-report {
+  background-image: url("https://source.unsplash.com/BtbjCFUvBXs/1920x1080");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .carousel-item {
   height: 100vh;
   min-height: 350px;
@@ -92,4 +99,9 @@
 
 .contact-icon i:hover {
   color: #fff;
+}
+
+.lead-s {
+  font-size: 1rem;
+  font-weight: 300;
 }

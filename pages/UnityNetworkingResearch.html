@@ -5,8 +5,9 @@
     <link rel="stylesheet" href="/css/custom.css" />
     <link rel="stylesheet" href="/fontawesome/all.css" />
   </head>
+
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow sticky-top">
       <div class="container">
         <a class="navbar-brand" href="/index.html">Bvanderwolf</a>
         <button
@@ -44,7 +45,7 @@
                 <li><a class="nav-link" href="BoatGameCode.html">BoatGame</a></li>
               </ul>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="contact.html">Contact</a>
             </li>
           </ul>
@@ -53,7 +54,33 @@
     </nav>
 
     <!-- Full Page Image Header with Vertically Centered Content -->
-    <header class="masthead"></header>
+    <header class="background-report">
+      <div class="container">
+        <h1 class="text-center p-5">Creating a 2D Multiplayer Racing Game</h1>
+        <h2 class="text-center p-2">Introduction</h2>
+        <p class="lead-s text-left pt-2 pb-5">
+          How do I create a 2d multiplayer racing game with lag and packet loss compensation and desync-avoidance? To find this out I will
+          take a look at the Photon Unity3D Networking Framework and create a project using Photon for the Unity Engine,to research this
+          very topic.<br /><br />During this project I will research various industry examples and/or documentation to find my own optimal
+          solution to the problems I will face making this application. <br /><br />I will try to implement my own synchronization code
+          based on the research done and document the process and the things I found out. In the last chapter I will explain my own solution
+          and try to argue why I think it is the optimal solution for my use case.
+        </p>
+        <h2 class="text-center p-2">Setting up the project</h2>
+        <p class="lead-s text-left pt-2 pb-5">
+          Before I can start my research I will have to set up my project with the Photon Unity3D Networking Framework. Since this is not
+          the main focus of my report I will try to spend as little time as possible on this. To actually get to a context where players,
+          steering their cars, will have to synchronize the cars on their client with the other’s, I will first have to do some setting up.
+        </p>
+        <h3 class="text-center p-2">Connecting to a Photon Server</h3>
+        <p class="lead-s text-left pt-2">
+          The first step is that you connect with Photon’s servers (Also called the master server). There are 4 ways to connect to a Photon
+          server. 2 of which are cloud servers. Here are all 4 in code:
+        </p>
+        <img class="rounded d-block" src="/img/rapports/UnityNetworking/snippit_connectmaster.png" alt="" />
+        <p class="lead-s font-italic text-left">Figure 1. Connecting to Master options</p>
+      </div>
+    </header>
     <script src="/js/jQuery.min.js"></script>
     <script src="/js/bootstrap.bundle.min.js"></script>
   </body>
