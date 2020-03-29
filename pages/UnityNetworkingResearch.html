@@ -50,6 +50,8 @@
   <header class="background-report">
     <div class="container">
       <h1 class="text-center p-5">Creating a 2D Multiplayer Racing Game</h1>
+      <img class="rounded mx-auto d-block pb-3" width="698" height="500"
+        src="/img/rapports/UnityNetworking/reportCover.png" alt="">
       <h2 class="text-center p-2">Introduction</h2>
       <p class="lead-s text-left pt-2 pb-5">
         How do I create a 2d multiplayer racing game with lag and packet loss compensation and desync-avoidance? To find
@@ -352,15 +354,13 @@
         <br><br> Testing this out i started with a simple implementation where i retrieve the position, rotation and
         velocity of the car and update the remote position with velocity times lag
       </p>
-      <img class="rounded mx-auto d-block" src="/img/rapports/UnityNetworking/CodeSnippets/snippetDeadReckAlgor.png"
-        alt="">
-      <p class="lead-s font-italic text-center p-2">
+      <img class="rounded" src="/img/rapports/UnityNetworking/CodeSnippets/snippetDeadReckAlgor.png" alt="">
+      <p class="lead-s font-italic p-2">
         Figure 16.1. Receiving position, rotation and velocity and storing them
       </p>
       <p class="lead-s text-left">And then move towards these “predicted” positions and retrieved rotations.</p>
-      <img class="rounded mx-auto d-block" src="/img/rapports/UnityNetworking/CodeSnippets/snippetDeadReckAlgor2.png"
-        alt="">
-      <p class="lead-s font-italic text-center p-2">
+      <img class="rounded" src="/img/rapports/UnityNetworking/CodeSnippets/snippetDeadReckAlgor2.png" alt="">
+      <p class="lead-s font-italic p-2">
         Figure 16.2. Linearly interpolating to remote position and remote rotation
       </p>
       <p class="lead-s text-left">
@@ -368,9 +368,8 @@
         The only thing missing was to create a snap when the position was too far behind or the angle between rotation
         and remote rotation was too great.
       </p>
-      <img class="rounded mx-auto d-block" src="/img/rapports/UnityNetworking/CodeSnippets/snippetTeleportDistance.png"
-        alt="">
-      <p class="lead-s font-italic text-center p-2">
+      <img class="rounded" src="/img/rapports/UnityNetworking/CodeSnippets/snippetTeleportDistance.png" alt="">
+      <p class="lead-s font-italic p-2">
         Figure 17. Code snippet where, if a max distance or angle is reached, a snap occurs setting the state directly
       </p>
       <p class="lead-s text-left">
@@ -378,15 +377,175 @@
         frequently, since the speed is lower and the next position/rotation is further away. Increasing the thresholds
         based on lag did help a lot at higher package loss rates and when having a lot of jitter.
       </p>
-      <img class="rounded mx-auto d-block"
-        src="/img/rapports/UnityNetworking/CodeSnippets/snippetVariableMaxDistanceAndAngle.png" alt="">
-      <p class="lead-s font-italic text-center p-2">
+      <img class="rounded" src="/img/rapports/UnityNetworking/CodeSnippets/snippetVariableMaxDistanceAndAngle.png"
+        alt="">
+      <p class="lead-s font-italic p-2">
         Figure 18. Code snippet where max distance and max angle are updated based on lag
       </p>
       <p class="lead-s text-left">
         I decided to not expand further on this technique. This is because, while in the process of testing this, I
         learned more about state synchronization and definitely wanted to try that technique first before expanding too
         much on one that might not even fit my use case.
+      </p>
+      <h3 class="text-center p-2">State synchronization</h3>
+      <p class="lead-s text-left">
+        After watching the GDC talk on Networking for physics programmers by Glenn Fiedler, i think that this technique
+        fits my game the most. Starting off, I want to test the context in which I used deterministic lockstep and add
+        linear interpolation to change it to a state synchronization technique, sending only position and rotation in
+        addition to input.
+      </p>
+      <img class="rounded mx-auto d-block" src="/gif/vertical_input_correction.gif" alt="">
+      <p class="lead-s font-italic text-center p-2">
+        Figure 19. Simulating vertical input with sending of position
+      </p>
+      <p class="lead-s text-left">
+        The result is pretty good in comparison with only the inputs. After the car stands still and lag, jitter and
+        packet loss are increased, the car still manages to stay almost on top of the shadow keeping a smooth movement
+        along the way.
+        <br><br>
+        Using the same technique but with rotation linearly interpolated as well:
+      </p>
+      <div class="row">
+        <div class="col-sm">
+          <img class="rounded" width="500" height="375" src="/gif/State_Sync_no_lag.gif" alt="" />
+          <p class="lead-s font-italic text-left p-2">Figure 20.1. Without Lag</p>
+        </div>
+        <div class="col-sm">
+          <img class="rounded" width="500" height="375" src="/gif/State_Sync_lag.gif" alt="" />
+          <p class="lead-s font-italic text-left p-2">Figure 20.2. With Lag</p>
+        </div>
+      </div>
+      <p class="lead-s text-left">
+        With a normal connection the remote car (shadow car) is nowhere to be seen which means we are almost on the
+        remote position each time. Even when, after the connection is simulated to be really bad or a collision happens,
+        the car is still smoothly moving around at the same pace it was with a good connection. The only problem comes
+        when the car gets out of sync when the amount of network interference is high.
+      </p>
+      <h2 class="text-center p-2">Finding an optimal solution</h2>
+      <p class="lead-s text-left">
+        Now that my first iteration of my car-synchronization code is finished I can add more things to test its
+        flexibility. I want to create a boost for the car, adding gameplay and a way of increasing the car’s speed. I
+        also want to add more objects with which the cars can collide.
+      </p>
+      <h3 class="text-center p-2">Car Boosting</h3>
+      <p class="lead-s text-left">
+        After working for a few hours on car boosts I noticed that the speed became a problem for synchronization. At
+        higher speeds, the car would be too far behind the remote car causing desync problems. Currently I don't send
+        velocity in my state synchronization, since cars move mostly at the same time, all the time. Now that I have
+        boosts, the car 's speed can fluctuate very quickly and frequently. I can manage this by adding the same
+        technique(dead reckoning algorithm) as I did with snapshot interpolation where I added the velocity times the
+        lagg, to the remote position (see Figure 18).
+      </p>
+      <div class="row">
+        <div class="col-sm">
+          <img class="rounded" width="500" height="375" src="/gif/State_Sync_Velocity.gif" alt="" />
+          <p class="lead-s font-italic text-left p-2">Figure 21.1. Without Lag</p>
+        </div>
+        <div class="col-sm">
+          <img class="rounded" width="500" height="375" src="/gif/State_Sync_Velocity_lag.gif" alt="" />
+          <p class="lead-s font-italic text-left p-2">Figure 22.2. With Lag</p>
+        </div>
+      </div>
+      <p class="lead-s text-left">
+        Now that i have incorporated velocity into my remote position of the car, i have a better approximation of where
+        it actually is, this means the shadow will appear more frequently since i won’t be at the exact position each
+        time because of the delay. I now have to adapt my linear interpolation in a way that it adapts its speed based
+        on some network related value.
+      </p>
+      <h3 class="text-center p-2">Collision problems</h3>
+      <p class="lead-s text-left">
+        Another problem is that ,with that speed, the errors after collisions need to be corrected very fast. Otherwise,
+        even with a good connection, the remote car and the car on our client will be off by too much and I would need
+        to teleport it which i don't want. To mitigate this I want to send a colliding flag. This colliding flag tells
+        the other client if it is colliding or not. If the remote car is colliding, I can increase my linear
+        interpolation speed to try and compensate for the indifferences that may occur.
+        <br><br> Thinking about these 2 things i came up with this:
+      </p>
+      <img class="rounded mx-auto d-block"
+        src="/img/rapports/UnityNetworking/CodeSnippets/snippetRemoteCollisionFlag.png" alt="">
+      <p class="lead-s font-italic text-center p-2">
+        Figure 23. trying to incorporate lag and a remote collision flag into the linear interpolation
+      </p>
+      <div class="row">
+        <div class="col-sm">
+          <img class="rounded" width="500" height="375" src="/gif/State_Sync_remoteCollision_no_lag.gif" alt="" />
+          <p class="lead-s font-italic text-left p-2">Figure 24.1. Without Lag</p>
+        </div>
+        <div class="col-sm">
+          <img class="rounded" width="500" height="375" src="/gif/State_Sync_remoteCollision_lag.gif" alt="" />
+          <p class="lead-s font-italic text-left p-2">Figure 24.2. With Lag</p>
+        </div>
+      </div>
+      <p class="lead-s text-left">
+        The result was already a lot better. Without real network interference, the car would mostly stay on top of the
+        shadow car, even after collision. The problem however, is that the amount of desync created by simulated network
+        interference is way too high. I also still had the problem of collisions pretty much destroying synchronization
+        of the car. Since the remote car will never be at the exact location of impact at the same time as the true car,
+        the simulation itself will be a lot different, this error margin will get even bigger when the speed of the car
+        is increased. To Fix this I have to make sure that the car, even with high speed, would be as close to the
+        remote car as possible.
+        <br><br> After testing my new setup with another student I got feedback on my new synchronization. One of the
+        things I had not tried yet was linear interpolation based on distance between position and remote position. One
+        of the
+        things I also had to accept was that my send rate would need to be a lot higher to make the simulation more
+        accurate. According to Photon Network documentation, Send Rate is defined as the amount of packages sent per
+        second. In addition to Send Rate there is another value called Serialization Rate, which is defined as the
+        amount of time the OnSerialize Function is called(this is used to send and receive data).
+      </p>
+      <h3 class="text-center p-2">Creating the Final solution</h3>
+      <p class="lead-s text-left">
+        I realized the linear interpolation I had always had in my Fixed Update could be moved towards the Update so the
+        linear interpolation would happen more frequently.
+      </p>
+      <img class="rounded" src="/img/rapports/UnityNetworking/CodeSnippets/snippetToGameFrames.png" alt="">
+      <p class="lead-s font-italic p-2">
+        Figure 24. Moving correction of car simulation to game frames
+      </p>
+      <p class="lead-s text-left">
+        In the linear interpolation I base my interpolation speed of movement on the distance between position and
+        remote position and for rotation based on the angle between rotation and remote rotation. Render time is
+        replaced by tick time because I realized i am linearly interpolating based on server ticks (time between
+        serialization) and not render ticks (Time.deltaTime/ time between render frames).
+      </p>
+      <img class="rounded" src="/img/rapports/UnityNetworking/CodeSnippets/snippetCorrectCarSim.png" alt="">
+      <p class="lead-s font-italic p-2">
+        Figure 25. Update correction of car simulation
+      </p>
+      <p class="lead-s text-left">
+        After receiving a new snapshot and updating all my data, I also check if my car is catching up in some way. If
+        the car is catching up and the remote collision flag is true, it is essential to snap the car to its new
+        position to make sure no further deviation from the true simulation occurs.
+      </p>
+      <img class="rounded" src="/img/rapports/UnityNetworking/CodeSnippets/snippetOnSerializeView.png" alt="">
+      <p class="lead-s font-italic p-2">
+        Figure 26. Checking for snap when receiving a new snapshot
+      </p>
+      <p class="lead-s text-left">
+        I increased the send rate (amount of packages sent per second) and SerializationRate (OnSerialize Ticks per
+        second) to be higher (SendRate was 20 and SerializationRate was 10).
+      </p>
+      <img class="rounded" src="/img/rapports/UnityNetworking/CodeSnippets/snippetSendSerialize1.png" alt="">
+      <p class="lead-s font-italic p-2">
+        Figure 27.1. Send and serialization rate constants
+      </p>
+      <img class="rounded" src="/img/rapports/UnityNetworking/CodeSnippets/snippetSendSerialize2.png" alt="">
+      <p class="lead-s font-italic p-2">
+        Figure 27.2. Setting send and serialization rate
+      </p>
+      <p class="lead-s text-left">The result:</p>
+      <div class="row">
+        <div class="col-sm">
+          <img class="rounded" width="500" height="375" src="/gif/State_Sync_DistanceBased_no_lag.gif" alt="" />
+          <p class="lead-s font-italic text-left p-2">Figure 28.1. Without Lag</p>
+        </div>
+        <div class="col-sm">
+          <img class="rounded" width="500" height="375" src="/gif/State_Sync_DistanceBased_average_lag.gif" alt="" />
+          <p class="lead-s font-italic text-left p-2">Figure 28.2. With average Lag</p>
+        </div>
+      </div>
+      <img class="rounded mx-auto d-block" src="/gif/State_Sync_DistanceBased_high_lag.gif" alt="">
+      <p class="lead-s font-italic text-center p-2">
+        Figure 28.3. With high amounts of Lag
       </p>
     </div>
   </header>
