@@ -80,7 +80,7 @@
         connect to a Photon
         server. 2 of which are cloud servers. Here are all 4 in code:
       </p>
-      <img class="rounded d-block" src="/img/rapports/UnityNetworking/snippit_connectmaster.png" alt="" />
+      <img class="rounded d-block" src="/img/rapports/UnityNetworking/CodeSnippets/snippit_connectmaster.png" alt="" />
       <p class="lead-s font-italic text-left p-2">Figure 1. Connecting to Master options</p>
       <p class="lead-s text-left">
         The first option (and the one I’m using) uses a scriptable object called PhotonServerSettings to connect to a
@@ -94,7 +94,7 @@
         Photon cloud server in a given region.
         <br />Facilitating connecting to Master in a unity scene, I did with a simple “Connect to Master” Button
       </p>
-      <img class="rounded d-block" src="/img/rapports/UnityNetworking/unity_connect_1.png" alt="" />
+      <img class="rounded d-block" src="/img/rapports/UnityNetworking/Scene/unity_connect_1.png" alt="" />
       <p class="lead-s font-italic text-left p-2">Figure 2. The Connect to master button</p>
       <h3 class="text-center p-2">Connecting to a Room</h3>
       <p class="lead-s text-left pt-2">
@@ -102,7 +102,7 @@
         data back and forth.
         There are 4 ways to connect to a room. Here are all 4 in code:
       </p>
-      <img class="rounded d-block" src="/img/rapports/UnityNetworking/snippit_connectroom.png" alt="" />
+      <img class="rounded d-block" src="/img/rapports/UnityNetworking/CodeSnippets/snippit_connectroom.png" alt="" />
       <p class="lead-s font-italic text-left p-2">Figure 3. Connecting to Room options</p>
       <p class="lead-s text-left">
         The first option (and the one I’m using) tries joining a room with a given name, room options and lobby type and
@@ -117,7 +117,7 @@
         Room” button when
         connecting to master was successful.
       </p>
-      <img class="rounded d-block" src="/img/rapports/UnityNetworking/unity_connect_2.png" alt="" />
+      <img class="rounded d-block" src="/img/rapports/UnityNetworking/Scene/unity_connect_2.png" alt="" />
       <p class="lead-s font-italic text-left p-2">Figure 4. The Connect to room button</p>
       <h3 class="text-center p-2">The Room process</h3>
       <p class="lead-s text-left pt-2">
@@ -141,11 +141,11 @@
       </p>
       <div class="row">
         <div class="col-sm">
-          <img class="rounded" src="/img/rapports/UnityNetworking/unity_connect_3.png" alt="" />
+          <img class="rounded" src="/img/rapports/UnityNetworking/Scene/unity_connect_3.png" alt="" />
           <p class="lead-s font-italic text-left p-2">Figure 5. One player inside the room</p>
         </div>
         <div class="col-sm">
-          <img class="rounded" src="/img/rapports/UnityNetworking/unity_connect_4.png" alt="" />
+          <img class="rounded" src="/img/rapports/UnityNetworking/Scene/unity_connect_4.png" alt="" />
           <p class="lead-s font-italic text-left p-2">Figure 6. Two players inside the room</p>
         </div>
       </div>
@@ -153,9 +153,9 @@
         Wanting to visualize the process from opening the application to actually starting the game, I created some
         diagrams.
       </p>
-      <img class="rounded p-1" src="/img/rapports/UnityNetworking/ApplicationFlow_Connect.png" alt="" />
-      <img class="rounded p-1" src="/img/rapports/UnityNetworking/ApplicationFlow_room.png" alt="" />
-      <img class="rounded pt-1 pb-5" src="/img/rapports/UnityNetworking/SceneGamePhaseRelation.png" alt="" />
+      <img class="rounded p-1" src="/img/rapports/UnityNetworking/Research/ApplicationFlow_Connect.png" alt="" />
+      <img class="rounded p-1" src="/img/rapports/UnityNetworking/Research/ApplicationFlow_room.png" alt="" />
+      <img class="rounded pt-1 pb-5" src="/img/rapports/UnityNetworking/Research/SceneGamePhaseRelation.png" alt="" />
       <h2 class="text-center p-2">Researching Industry Examples</h2>
       <p class="lead-s text-left">
         The first big company that I found had some interesting information on Multiplayer Networking was Valve. They
@@ -200,8 +200,194 @@
           smooth gameplay.
         </li>
       </ul>
-      <img class="rounded pt-4" src="/img/rapports/UnityNetworking/serverTicksVisualized.gif" alt="" />
+      <img class="rounded pt-4" src="/img/rapports/UnityNetworking/Research/serverTicksVisualized.gif" alt="" />
       <p class="lead-s font-italic text-left p-2">Figure 7. Game server ticks visualized</p>
+      <p class="lead-s text-left">Making this work is hard because of the following reasons:</p>
+      <ul>
+        <li class="lead-s">Data compression (reducing data footprint when sending, reconstructing it when delivered)
+        </li>
+        <li class="lead-s">Lag compensation</li>
+      </ul>
+      <p class="lead-s text-left">
+        The client can then use predictive measures (for example extrapolating) and interpolation to improve the
+        experience for the player.
+        <br><br> In his chapter about Entity Interpolation Bernier goes in depth as to how the interpolation is done
+        exactly.
+        Since snapping entity states to a given world state would look choppy and jittery (visualized when implementing
+        my own code), clients go back in time for rendering, so positions and animations can be continuously
+        interpolated between two recently received snapshots.
+        <br><br> In a scenario where you receive 20 snapshots per second, a new update arrives about every 50
+        milliseconds ((1
+        second / 20) x 1000). If the client render time is shifted back 50 milliseconds, entities can always be
+        interpolated between the last received snapshot and the snapshot before that.
+        <br><br> In the “Source” engine, the client buffers snapshots based on a constant interpolation period value.
+        This
+        constant value defaults to 100 milliseconds. This means that even if a snapshot is lost. The client can still
+        linearly interpolate between the snapshot before the one it lost (in the buffer) and the one received after the
+        one it lost.
+      </p>
+      <img class="rounded" src="/img/rapports/UnityNetworking/Research/serverInterpolationVisualized.gif" alt="">
+      <p class="lead-s font-italic text-left p-2">Figure 8. Interpolation between old snapshots visualized</p>
+      <h3 class="text-center p-2">Gaffer On Games GDC Talk</h3>
+      <p class="lead-s text-left">
+        Glenn Fiedler, the founder and CEO of Network Next, Talked during his GDC talk about Networking for Physics
+        programmers. My 2D multiplayer Racing Game uses a lot of physics with car interaction and control, the things he
+        talks about are very relevant to my project. The talk contains a lot of information of which not all is used for
+        my own networking code. Despite that, the information that was relevant really helped bring my project further.
+        The things I was most interested in in his talk was his explanation of the Three Techniques for network
+        synchronization that he distinguishes: Deterministic lockstep, Snapshot interpolation and State Synchronization.
+      </p>
+      <h4 class="text-center pt-2">Deterministic Lockstep</h4>
+      <p class="lead-s text-left">
+        Deterministic lockstep is used a lot in real time strategy games where inputs generated on one computer are
+        always the same as on another computer (Fiedler, 2018). This means that the computer’s hardware doesn’t
+        determine the outcome of the input. There are no dependencies there. A low budget computer gives the same result
+        as a high budget one. When a developer chooses to use deterministic lockstep, he only sends and receives player
+        input (for example keyboard input). These inputs can then be used on the client to simulate the behaviors
+        associated with these inputs. This method doesn’t use a lot of bandwidth but requires the game to be
+        deterministic to the byte level.
+      </p>
+      <h4 class="text-center pt-2">Snapshot Interpolation</h4>
+      <p class="lead-s text-left">
+        Developers using snapshot interpolation send, in their snapshots, the necessary states that describe an entity
+        in the world. This would mean for a car its position and orientation, and maybe even its velocity. Other clients
+        receiving these states can then interpolate between the states in their scene and the states received in the
+        snapshot. The other clients are interpolating between snapshots. This method is very robust but costs a lot of
+        bandwidth (Fiedler, 2018).
+      </p>
+      <h4 class="text-center pt-2">State Synchronization</h4>
+      <p class="lead-s text-left">
+        State synchronization is a method where you as a developer make use of both input and states that describe an
+        entity. With this, you don’t require determinism because you have, alongside the inputs for the simulation, a
+        state to which interpolation can be done to fix problems up (Fiedler, 2018).
+      </p>
+      <h2 class="text-center p-2">Implementing my own synchronization code</h2>
+      <p class="lead-s text-left">
+        Having looked extensively at research on the topic of multiplayer networking I can now create and test my own
+        code in the Unity Game Engine using the Photon Unity3D Networking Framework. Before I can start writing my own
+        code I have to set up my scene and cars to facilitate this.
+        <br><br> I created a road on which players can drive their cars and imported some simple car sprites to
+        represent each
+        player’s car.
+      </p>
+      <img class="rounded" src="/img/rapports/UnityNetworking/Scene/screenshot_roadsimplecars.png" alt="">
+      <p class="lead-s font-italic text-left p-2">Figure 9. Road with simple cars to drive on</p>
+      <p class="lead-s text-left">
+        I will start off by indicating the remote state of the car (i.e. the last snapshot state I received) as a red
+        marker (I can later change this to a more transparent version of the car).
+      </p>
+      <img class="rounded" src="/img/rapports/UnityNetworking/Scene/screenshot_reddot.png" alt="">
+      <p class="lead-s font-italic text-left p-2">Figure 10. Red indicator to visualize the remote state of the car</p>
+      <p class="lead-s text-left">
+        I need to test out a lot of different things to eventually get to something I can be proud of and know to be
+        working well. I have to take into account many things when writing my code. My cars make use of a rigid body
+        component to move around and interact with their surroundings. This rigid body component places the car under
+        the control of the physics engine. Since the physics engine produces non deterministic results all the time
+        (Fiedler, 2018), I will have to take this into account when writing my code.
+      </p>
+      <h3 class="text-center p-2">Snapping to newly received snapshots</h3>
+      <p class="lead-s text-left">
+        Knowing why just snapping to a newly received snapshot is not the way to go is always
+        handy.
+      </p>
+      <img class="rounded mx-auto d-block" src="/img/rapports/UnityNetworking/CodeSnippets/snippet_snap_state.png"
+        alt="">
+      <p class="lead-s font-italic text-center p-2">
+        Figure 11. Code snippet where RB is rigid body component instance
+      </p>
+      <div class="row">
+        <div class="col-sm">
+          <img class="rounded" width="500" height="375" src="/gif/Snapshot_Sync_no_lag.gif" alt="" />
+          <p class="lead-s font-italic text-left p-2">Figure 12.1. Without Lag</p>
+        </div>
+        <div class="col-sm">
+          <img class="rounded" width="500" height="375" src="/gif/Snapshot_Sync_lag.gif" alt="" />
+          <p class="lead-s font-italic text-left p-2">Figure 12.2. With Lag</p>
+        </div>
+      </div>
+      <h3 class="text-center p-2">Deterministic lockstep</h3>
+      <p class="lead-s text-left">
+        Sending only player inputs in the context of my game would be to send vertical and horizontal axis inputs (for
+        controlling the car). Doing this, the car movement actually looked pretty good. However, the remote car (shadow
+        car) would come into view a lot, meaning it got out of sync. This was especially true when I started increasing
+        the amount of lag. Also, everything works well until collisions happen and the physics system with its
+        non-determinism creates difference on both clients.
+      </p>
+      <div class="row">
+        <div class="col-sm">
+          <img class="rounded" width="500" height="375" src="/gif/vertical_input_no_correction.gif" alt="" />
+          <p class="lead-s font-italic text-left p-2">Figure 13.1. Sending only vertical input</p>
+        </div>
+        <div class="col-sm">
+          <img class="rounded" width="500" height="375" src="/gif/deterministic_lockstep.gif" alt="" />
+          <p class="lead-s font-italic text-left p-2">Figure 13.2. Sending horizontal and vertical input
+          </p>
+        </div>
+      </div>
+      <h3 class="text-center p-2">Snapshot interpolation</h3>
+      <p class="lead-s text-left">
+        Just interpolating towards the new state of the remote car could also be an option. If I don't simulate anything
+        on my computer and just look at the state that is given to me each snapshot, there won’t be any errors related
+        to non-determinism of the physics engine.
+      </p>
+      <img class="rounded mx-auto d-block"
+        src="/img/rapports/UnityNetworking/CodeSnippets/snippetLinearInterpolation.png" alt="">
+      <p class="lead-s font-italic text-center p-2">
+        Figure 14. The position of the remote car gets linearly interpolated towards a remote position.
+      </p>
+      <div class="row">
+        <div class="col-sm">
+          <img class="rounded" width="500" height="375" src="/gif/Snapshot_Interpolation_no_lag.gif" alt="" />
+          <p class="lead-s font-italic text-left p-2">Figure 15.1. Without Lag</p>
+        </div>
+        <div class="col-sm">
+          <img class="rounded" width="500" height="375" src="/gif/Snapshot_Interpolation_lag.gif" alt="" />
+          <p class="lead-s font-italic text-left p-2">Figure 15.2. With Lag</p>
+        </div>
+      </div>
+      <p class="lead-s text-left">
+        Looking at the movement of the car, it is smooth. Sadly enough it is very much at too great a distance from the
+        remote state it should be in. This could definitely be improved upon. Using a method from a dead reckoning
+        algorithm where u extrapolate the remote position using the lag and velicity (Aronson, 1997).
+        <br><br> Testing this out i started with a simple implementation where i retrieve the position, rotation and
+        velocity of the car and update the remote position with velocity times lag
+      </p>
+      <img class="rounded mx-auto d-block" src="/img/rapports/UnityNetworking/CodeSnippets/snippetDeadReckAlgor.png"
+        alt="">
+      <p class="lead-s font-italic text-center p-2">
+        Figure 16.1. Receiving position, rotation and velocity and storing them
+      </p>
+      <p class="lead-s text-left">And then move towards these “predicted” positions and retrieved rotations.</p>
+      <img class="rounded mx-auto d-block" src="/img/rapports/UnityNetworking/CodeSnippets/snippetDeadReckAlgor2.png"
+        alt="">
+      <p class="lead-s font-italic text-center p-2">
+        Figure 16.2. Linearly interpolating to remote position and remote rotation
+      </p>
+      <p class="lead-s text-left">
+        Looking at the results with high amounts of lag, I found that the linear interpolation actually did a great job.
+        The only thing missing was to create a snap when the position was too far behind or the angle between rotation
+        and remote rotation was too great.
+      </p>
+      <img class="rounded mx-auto d-block" src="/img/rapports/UnityNetworking/CodeSnippets/snippetTeleportDistance.png"
+        alt="">
+      <p class="lead-s font-italic text-center p-2">
+        Figure 17. Code snippet where, if a max distance or angle is reached, a snap occurs setting the state directly
+      </p>
+      <p class="lead-s text-left">
+        Testing this with higher lag amounts, i find that the car does move smoothly but it starts teleporting more
+        frequently, since the speed is lower and the next position/rotation is further away. Increasing the thresholds
+        based on lag did help a lot at higher package loss rates and when having a lot of jitter.
+      </p>
+      <img class="rounded mx-auto d-block"
+        src="/img/rapports/UnityNetworking/CodeSnippets/snippetVariableMaxDistanceAndAngle.png" alt="">
+      <p class="lead-s font-italic text-center p-2">
+        Figure 18. Code snippet where max distance and max angle are updated based on lag
+      </p>
+      <p class="lead-s text-left">
+        I decided to not expand further on this technique. This is because, while in the process of testing this, I
+        learned more about state synchronization and definitely wanted to try that technique first before expanding too
+        much on one that might not even fit my use case.
+      </p>
     </div>
   </header>
   <script src="/js/jQuery.min.js"></script>
