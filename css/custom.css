@@ -17,8 +17,8 @@
 .background-report {
   background-color: #e1e2da;
   background-size: cover;
-  background-position: center;
   background-repeat: no-repeat;
+  height: 100%;
 }
 
 .carousel-item {
