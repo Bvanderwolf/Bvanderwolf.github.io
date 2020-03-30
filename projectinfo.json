@@ -11,7 +11,8 @@
       "Viewmodels and LiveData",
       "Remote data using the NumbersAPI",
       "Animations using Lottie Animation"
-    ]
+    ],
+    "githubLink": "https://github.com/Bvanderwolf/MathRecycler"
   },
   "hubgames": {
     "imgSrc": "/img/projects/hubgames_main.png",
@@ -25,7 +26,8 @@
       "Large use of events",
       "Large use of anonymous functions/lambda functions",
       "Large ammount of grid usage"
-    ]
+    ],
+    "githubLink": "https://github.com/Bvanderwolf/GameHub"
   },
   "cms": {
     "imgSrc": "/img/projects/cms_main.png",
@@ -33,6 +35,25 @@
     "title": "Content Management System",
     "description": "Made using github pages this project was my first ever web development project. It was part of a 3 part system architecture. It's purpose was to upload 3D models to the github repository through the github API. Another website could then fetch these models and show them in Augmented Reality on the web",
     "subtitle": "Libraries",
-    "detailslist": ["Vue", "Github Api", "Bootstrap"]
+    "detailslist": [
+      "Vue",
+      "Github Api",
+      "Bootstrap"
+    ],
+    "githubLink": "https://github.com/Bvanderwolf/ContentManagementSystem"
+  },
+  "unityNetworking": {
+    "imgSrc": "/img/projects/reportCover_main.png",
+    "imgSrcLittle": "/img/projects/reportCorver_little.png",
+    "title": "Unity Networking",
+    "description": "How do I create a 2d multiplayer racing game with lag and packet loss compensation and desync-avoidance? To find this out I will take a look at the Photon Unity3D Networking Framework and create a project using Photon for the Unity Engine, to research this very topic.",
+    "subtitle": "Techniques",
+    "detailslist": [
+      "Photon Framework",
+      "DeadReckoning",
+      "2D",
+      "State Synchronization"
+    ],
+    "githubLink": "https://github.com/Bvanderwolf/MultiplayerRacing"
   }
 }

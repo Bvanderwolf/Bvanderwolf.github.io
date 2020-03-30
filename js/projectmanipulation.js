@@ -1,7 +1,8 @@
+const projectsStoreKey = "projects";
+
 async function LoadDefaultInfo() {
   //load json file
-  const response = await fetch("/projectinfo.json");
-  const json = await response.json();
+  const json = await GetProjectInfo();
 
   if (!json) return;
   //first entry is the main entry for the page
@@ -35,6 +36,22 @@ async function onChangeInfo(element) {
   setDescription(main.description);
   setSubTitle(main.subtitle);
   setDetailsList(main.detailslist);
+}
+
+async function GetProjectInfo() {
+  //get json string from local storage
+  let json = localStorage.getItem(projectsStoreKey);
+  if (!json) {
+    //if json is not in storage get in from files and set it as json string
+    json = await fetch("/projectinfo.json").then(response => response.json());
+    localStorage.setItem(projectsStoreKey, JSON.stringify(json));
+  }
+  else {
+    //if json is in storage parse is for usage in project manipulation
+    json = JSON.parse(json);
+  }
+
+  return json;
 }
 
 function addEventListeners() {
@@ -74,8 +91,9 @@ function getImageSources(json, keys) {
   //add key value objects to src array if the sources is valid
   for (let i = 0; i < keys.length; i++) {
     const src = json[keys[i]].imgSrc;
+    const githubLink = json[keys[i]].githubLink;
     if (src) {
-      srcArray.push({ key: keys[i], imgSrc: src });
+      srcArray.push({ key: keys[i], imgSrc: src, link: githubLink });
     }
   }
 
@@ -89,6 +107,7 @@ function setImageSources(srcArray) {
   if (mainImg) {
     mainImg.dataset.project = srcArray[0].key;
     mainImg.src = srcArray[0].imgSrc;
+    mainImg.parentElement.href = srcArray[0].link;
   }
 
   //set other project image sources and project datasets if there are any

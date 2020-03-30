@@ -14,13 +14,6 @@
   background-repeat: no-repeat;
 }
 
-.background-report {
-  background-color: #e1e2da;
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 100%;
-}
-
 .carousel-item {
   height: 100vh;
   min-height: 350px;
