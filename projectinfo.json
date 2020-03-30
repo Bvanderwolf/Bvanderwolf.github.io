@@ -43,7 +43,7 @@
     "githubLink": "https://github.com/Bvanderwolf/ContentManagementSystem"
   },
   "unityNetworking": {
-    "imgSrc": "/img/projects/reportCover_main.png",
+    "imgSrc": "/img/projects/UnityNetworking.gif",
     "imgSrcLittle": "/img/projects/reportCorver_little.png",
     "title": "Unity Networking",
     "description": "How do I create a 2d multiplayer racing game with lag and packet loss compensation and desync-avoidance? To find this out I will take a look at the Photon Unity3D Networking Framework and create a project using Photon for the Unity Engine, to research this very topic.",
