@@ -36,7 +36,9 @@ async function StartGistHandlingASync(fromPage) {
 class GistHandler {
   async LoadGistsASync(page) {
     //fetch git list from github api
-    const json = await fetch(gistURL).then(response => response.json());
+    const response = await fetch(gistURL);
+    const json = await response.json();
+
     if (!json) return [];
 
     //store item in local storage

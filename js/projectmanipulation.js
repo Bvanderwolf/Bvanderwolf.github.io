@@ -21,7 +21,8 @@ async function LoadDefaultInfo() {
 async function onChangeInfo(element) {
   if (!element || !element.dataset.project) return;
 
-  const json = await fetch("/projectinfo.json").then(response => response.json());
+  const response = await fetch("/projectinfo.json");
+  const json = await response.json();
 
   if (!json) return;
 

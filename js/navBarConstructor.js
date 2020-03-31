@@ -7,11 +7,9 @@ async function LoadNavBarASync(fromPage) {
   let text = localStorage.getItem(navBarHTMLStorageKey);
   if (!text) {
     //if nav bar html is not in local storage, fetch it and store it
-    text = await fetch("/HtmlComponents/NavBar.html").then(Response => {
-      console.log(Response);
-      Response.text();
-    });
-    console.log(text);
+    const response = await fetch("/HtmlComponents/NavBar.html");
+    text = await response.text();
+
     localStorage.setItem(navBarHTMLStorageKey, text);
   }
 
