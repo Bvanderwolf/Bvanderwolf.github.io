@@ -2,7 +2,7 @@ const gistURL = "https://api.github.com/users/Bvanderwolf/gists";
 const embedURL = "https://gist.github.com/Bvanderwolf/";
 const jsExt = ".js";
 const maxGists = 5;
-const projects = ["MathRecycler", "HubGames", "CMS", "BoatGame"];
+const projects = ["MathRecycler", "HubGames", "Website", "BoatGame"];
 const gistStoreKey = "gists";
 
 async function StartGistHandlingASync(fromPage) {
