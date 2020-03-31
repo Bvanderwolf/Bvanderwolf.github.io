@@ -11,6 +11,7 @@ async function LoadNavBarASync(fromPage) {
       console.log(Response);
       Response.text();
     });
+    console.log(text);
     localStorage.setItem(navBarHTMLStorageKey, text);
   }
 
