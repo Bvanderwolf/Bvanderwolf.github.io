@@ -10,6 +10,7 @@ async function LoadNavBarASync(fromPage) {
     text = await fetch("/HtmlComponents/NavBar.html").then(Response => Response.text());
     localStorage.setItem(navBarHTMLStorageKey, text);
   }
+  console.log(text);
   //set inner html of navigation
   const nav = document.getElementById("navigation");
   nav.innerHTML = text;
