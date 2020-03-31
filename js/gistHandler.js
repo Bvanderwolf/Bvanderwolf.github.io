@@ -2,12 +2,16 @@ const gistURL = "https://api.github.com/users/Bvanderwolf/gists";
 const embedURL = "https://gist.github.com/Bvanderwolf/";
 const jsExt = ".js";
 const maxGists = 5;
-const projects = ["MathRecycler", "HubGames", "Website", "BoatGame"];
+const projects = ["MathRecycler", "HubGames", "Website", "UnityNetworking", "BoatGame"];
+const reverseListed = ["UnityNetworking"];
 const gistStoreKey = "gists";
 
 async function StartGistHandlingASync(fromPage) {
   const gistHandler = new GistHandler();
-  let projectGists = gistHandler.GetProjectGists(fromPage);
+  //project is reverse listed in gists if it is included in reverseListed array
+  const isReverseListed = reverseListed.includes(fromPage);
+  //get gists related to project based on page and is reverse listed or not
+  let projectGists = gistHandler.GetProjectGists(fromPage, isReverseListed);
 
   if (projectGists.length == 0) {
     projectGists = await gistHandler.LoadGistsASync(fromPage);
@@ -17,7 +21,7 @@ async function StartGistHandlingASync(fromPage) {
       return;
     }
   }
-
+  //if there are more than max gist carousel items, return
   const items = document.getElementsByClassName("carousel-item");
   if (items.length > maxGists) return;
 
@@ -25,10 +29,8 @@ async function StartGistHandlingASync(fromPage) {
   for (let i = 0; i < items.length; i++) {
     const title = items[i].getElementsByClassName("card-title")[0];
     const description = items[i].getElementsByClassName("card-text")[0];
-    await gistHandler.SetupHtmlElementsASync(title, description, projectGists[i]);
+    gistHandler.SetupHtmlElements(title, description, projectGists[i]);
   }
-
-  //add script tags with a source based on embedUrl + gistID + jsExt
 }
 
 class GistHandler {
@@ -49,7 +51,7 @@ class GistHandler {
   }
 
   //returns filtered array with gists related to page
-  GetProjectGists(page) {
+  GetProjectGists(page, reverse) {
     const a = [];
     //the page has to be a project page
     if (!projects.includes(page)) return a;
@@ -76,17 +78,18 @@ class GistHandler {
         count++; //makes sure only max_gists gets added to return array
       }
     }
-    return a;
+    return reverse ? a.reverse() : a;
   }
 
-  async SetupHtmlElementsASync(titleEl, descriptionEl, projectGist) {
+  SetupHtmlElements(titleEl, descriptionEl, projectGist) {
     if (!projectGist) return;
+    //update title element
     if (titleEl) {
       const filename = Object.values(projectGist.files)[0].filename;
       const title = filename.split(".")[0].concat(" Class");
       titleEl.innerText = title;
     }
-
+    //update description element
     if (descriptionEl) {
       const desciption = projectGist.description.split("|")[1].trim();
       descriptionEl.innerText = desciption;
