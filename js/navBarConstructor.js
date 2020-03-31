@@ -12,9 +12,7 @@ async function LoadNavBarASync(fromPage) {
   }
   //set inner html of navigation
   const nav = document.getElementById("navigation");
-  const navQuery = $("#navigation");
-  navQuery.load("/pages/NavBar.html");
-
+  nav.innerHTML = text;
   //update active link based on given page
   const links = nav.getElementsByClassName("nav-link");
   for (let i = 0; i < links.length; i++) {
