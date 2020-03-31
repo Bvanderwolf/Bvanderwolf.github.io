@@ -5,52 +5,19 @@
   <link rel="stylesheet" href="css/bootstrap.css" />
   <link rel="stylesheet" href="css/custom.css" />
   <link rel="stylesheet" href="fontawesome/all.css">
+
+  <script src="/js/navBarConstructor.js"></script>
 </head>
 
-<body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">Bvanderwolf</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="index.html">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Projects
-              <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a class="nav-link" href="/pages/projects.html">Applications</a></li>
-              <li><a class="nav-link" href="/pages/UnityNetworkingResearch.html">Research</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Code
-              <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a class="nav-link" href="/pages/MathRecyclerCode.html">MathRecycler</a></li>
-              <li><a class="nav-link" href="/pages/HubGamesCode.html">HubGames</a></li>
-              <li><a class="nav-link" href="/pages/WebsiteCode.html">Website</a></li>
-              <li><a class="nav-link" href="/pages/UnityNetworkingCode.html">UnityNetworking</a></li>
-              <li><a class="nav-link" href="/pages/BoatGameCode.html">BoatGame</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="pages/contact.html">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+<body class="standard-background">
+  <!-- Navigation is loaded in through nav bar constructor script -->
+  <div id="navigation"></div>
+  <script>
+    //make sure argument corresponds to link text (inline html of a tag)
+    LoadNavBarASync("Home");
+  </script>
 
-  <header>
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="10000">
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="10000">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -58,15 +25,15 @@
       </ol>
       <div class="carousel-inner" role="listbox">
         <!-- Slide One - Set the background image for this slide in the line below -->
-        <div class="carousel-item active"
-          style="background-image: url('https://source.unsplash.com/sp-p7uuT0tw/1920x1080')">
-          <div class="carousel-caption d-none d-md-block">
+        <div class="carousel-item active">
+          <div class="carousel-custom-caption d-none d-md-block">
             <h2 class="display-3  ">
               Benjamin van
               <span class="display-3 ">der Wolf</span>
             </h2>
             <p class="lead text-justify ">
-              A good independent worker having a lot of experience working in groups, using systems like git for version
+              An IT enthusiast studying Game Development at the University Of Applied Sciences in Amsterdam.
+              I am a good independent worker having a lot of experience working in groups, using systems like git for version
               control and collaborative methods like agile and waterfall. Having worked at ING as Jr IT Specialist i am
               able to easily
               communicate my work with colleagues and/or stakeholders. Having worked part-time next to doing a bachelor
@@ -76,8 +43,8 @@
           </div>
         </div>
         <!-- Slide Two - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('https://source.unsplash.com/sp-p7uuT0tw/1920x1080')">
-          <div class="carousel-caption d-none d-md-block">
+        <div class="carousel-item">
+          <div class="carousel-custom-caption d-none d-md-block">
             <h2 class="display-3 mb-2">Work Experience</h2>
             <div class="mb-1">
               <h3 class="display-5"">2nd Year Internship</h3>
@@ -102,8 +69,8 @@
           </div>
         </div>
         <!-- Slide Three - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('https://source.unsplash.com/sp-p7uuT0tw/1920x1080')">
-          <div class="carousel-caption d-none d-md-block">
+        <div class="carousel-item">
+          <div class="carousel-custom-caption d-none d-md-block">
             <h2 class="display-3 mb-2">SKILLS</h2>
             <h3 class="display-5 mb-3">Programming Tools</h3>
             <div class="social-icons mb-5">
@@ -169,7 +136,6 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
-  </header>
 
   <script src="js/jQuery.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
