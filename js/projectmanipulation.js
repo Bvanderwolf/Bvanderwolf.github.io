@@ -21,8 +21,7 @@ async function LoadDefaultInfo() {
 async function onChangeInfo(element) {
   if (!element || !element.dataset.project) return;
 
-  const response = await fetch("/projectinfo.json");
-  const json = await response.json();
+  const json = await fetch("/projectinfo.json").then(response => response.json());
 
   if (!json) return;
 
@@ -45,8 +44,7 @@ async function GetProjectInfo() {
     //if json is not in storage get in from files and set it as json string
     json = await fetch("/projectinfo.json").then(response => response.json());
     localStorage.setItem(projectsStoreKey, JSON.stringify(json));
-  }
-  else {
+  } else {
     //if json is in storage parse is for usage in project manipulation
     json = JSON.parse(json);
   }
@@ -93,7 +91,7 @@ function getImageSources(json, keys) {
     const src = json[keys[i]].imgSrc;
     const githubLink = json[keys[i]].githubLink;
     if (src) {
-      srcArray.push({ key: keys[i], imgSrc: src, link: githubLink });
+      srcArray.push({key: keys[i], imgSrc: src, link: githubLink});
     }
   }
 
