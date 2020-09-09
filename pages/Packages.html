@@ -26,75 +26,9 @@
     </script>
 
     <div class="container">
-        <h1 class="text-center">Packages</h1>
-        <div class="mb-3">
-            <div>
-                <div class="card package-text">
-                    <div class="card-header">
-                        <h3 class="text-center">Photon SDK Wrapper</h3>
-                    </div>
-                    <div class="card-body ml-2">
-                        <p>A library for networking using the Photon multiplayer SDK.</p>
-                        <p>Latest Downloadable (Google Drive):
-                            <a
-                                href="https://drive.google.com/file/d/1kFEojh88C8Bp2ioc1oYW1R8_ehtAognP/view?usp=sharing">UnityPackage</a>
-                        </p>
-                        <h3>Current Version (1.0)</h3>
-                        <hr>
-                        <h4 class="pt-2">Simple Matchmaking</h4>
-                        <ul>
-                            <li>Connect using photon&#39;s default settings asset</li>
-                            <li>Join and Leave lobbies</li>
-                            <li>Receive lobby statics information</li>
-                            <li>Join, Create and Leave rooms</li>
-                            <li>Receive Room information inside a lobby</li>
-                        </ul>
-                        <h3 class="pt-2">Object Instantiation and Destruction</h3>
-                        <ul>
-                            <li>Objects can be instantiated using a Pooling system</li>
-                            <li>Objects can be destroyed using a Pooling system</li>
-                            <li>Objects are categorized into Movable and Static Objects where Movable objects have a
-                                PhotonView and Static Objects dont</li>
-                        </ul>
-                        <h3 class="pt-2">Events</h3>
-                        <ul>
-                            <li>Events can be registered </li>
-                            <li>Events can be listened to </li>
-                            <li>Events can be raised </li>
-                            <li>Types can be registered so they can be used as event content</li>
-                        </ul>
-                        <h3 class="pt-2">Requests</h3>
-                        <ul>
-                            <li>Requests can be registered </li>
-                            <li>Requests can be listened to </li>
-                            <li>Requests can be raised </li>
-                        </ul>
-                        <h3 class="pt-2">Callbacks</h3>
-                        <ul>
-                            <li>Clients can receive callbacks on matchmaking events</li>
-                            <li>Clients can receive callbacks on room events</li>
-                        </ul>
-                        <h3 class="pt-2">Synchronizing objects</h3>
-                        <ul>
-                            <li>A MovableNetworkedObject script implementing IPunObservable to synchronize the
-                                transform&#39;s position/rotation/scale properties</li>
-                        </ul>
-                        <h3 class="pt-2">The Client class</h3>
-                        <ul>
-                            <li>A local client instance containing your local client&#39;s information using
-                                photon&#39;s local player</li>
-                            <li>properties synchronized with others using Photon&#39;s Player Properties</li>
-                            <li>A client handler class managing local client and client properties</li>
-                        </ul>
-                        <h3 class="pt-2">Demo Game</h3>
-                        <ul>
-                            <li>1 demo scene in which the player can connect to a lobby and room</li>
-                            <li>1 demo scene where the player can play the game Tic-Tac Toe with another player</li>
-                            <li>Multiple scripts using the Photon Wrapper functionalities</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+        <h1 class="text-center mb-5">Packages</h1>
+        <div id="packages" class="mb-3">
+
         </div>
     </div>
     </div>
@@ -102,6 +36,9 @@
 
     <script src="/js/jQuery.min.js"></script>
     <script src="/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/showdown@1/dist/showdown.min.js"></script>
+    <script src="/js/bwolfpackages.js"></script>
 </body>
 
 </html>
