@@ -1,43 +1,53 @@
 <html>
-  <head>
-    <link rel="shortcut icon" href="/img/devicon.png" />
-    <link rel="stylesheet" href="/css/bootstrap.css" />
-    <link rel="stylesheet" href="/css/custom.css" />
-    <link rel="stylesheet" href="/fontawesome/all.css" />
 
-    <script src="/js/navBarConstructor.js"></script>
-  </head>
+<head>
+  <link rel="shortcut icon" href="/img/devicon.png" />
+  <link rel="stylesheet" href="/css/bootstrap.css" />
+  <link rel="stylesheet" href="/css/custom.css" />
+  <link rel="stylesheet" href="/fontawesome/all.css" />
 
-  <body class="standard-background">
-    <!-- Navigation is loaded in through nav bar constructor script -->
-    <div id="navigation"></div>
-    <script>
-      //make sure argument corresponds to link text (inline html of a tag)
-      LoadNavBarASync("Contact");
-    </script>
+  <script src="/js/navBarConstructor.js"></script>
+</head>
 
-    <div class="container">
-      <div class="row h-50 align-items-center">
-        <div class="col text-center">
-          <h2 class="display-4 mb-5">Contact Info</h2>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col text-center">
-          <a class="contact-icon mb-3" href="https://www.linkedin.com/in/benjamin-van-der-wolf-742305160/" target="_blank">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-          <h4 class="display-4" style="color: black;">LinkedIn</h4>
-        </div>
-        <div class="col text-center">
-          <a class="contact-icon mb-3" href="https://www.github.com/Bvanderwolf" target="_blank">
-            <i class="fab fa-github"></i>
-          </a>
-          <h4 class="display-4" style="color: black;">Github</h4>
-        </div>
+<body class="bg-grey">
+  <!-- Navigation is loaded in through nav bar constructor script -->
+  <div id="navigation"></div>
+  <script>
+    //make sure argument corresponds to link text (inline html of a tag)
+    LoadNavBarASync("Contact");
+  </script>
+
+  <div class="container">
+    <div class="row h-50 align-items-center mb-5">
+      <div class="col text-center">
+        <h1>Contact Info</h1>
       </div>
     </div>
-    <script src="/js/jQuery.min.js"></script>
-    <script src="/js/bootstrap.bundle.min.js"></script>
-  </body>
+    <div class="row">
+      <div class="col text-center">
+        <a class="contact-icon mb-3" href="https://www.linkedin.com/in/benjamin-van-der-wolf-742305160/"
+          target="_blank">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <h4 class="display-4 desktop-only" style="color: black;">LinkedIn</h4>
+      </div>
+      <div class="col text-center">
+        <a class="contact-icon mb-3" href="mailto: vanderwolf7@gmail.com" target="_blank">
+          <i class="fa fa-envelope"></i>
+        </a>
+        <h4 class="display-4 desktop-only" style="color: black;">Mail</h4>
+      </div>
+      <div class="col text-center">
+        <a class="contact-icon mb-3" href="https://www.github.com/Bvanderwolf" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+        <h4 class="display-4 desktop-only" style="color: black;">Github</h4>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/jQuery.min.js"></script>
+  <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+
 </html>

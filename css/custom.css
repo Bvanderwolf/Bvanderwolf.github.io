@@ -1,100 +1,39 @@
-.masthead {
-  height: 100vh;
-  min-height: 500px;
-  background-image: url("https://source.unsplash.com/wizj0ppghD0/1920x1080");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+header {
+  padding: 156px 0 100px;
 }
 
-.standard-background {
-  background-image: url("https://source.unsplash.com/wizj0ppghD0/1920x1080");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+section {
+  padding: 150px 0;
 }
 
-.carousel-item {
-  height: 100vh;
-  min-height: 350px;
-  background: no-repeat center center scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+.project-text {
+  font-size: 1rem;
+  font-weight: 300;
 }
 
-.carousel-custom-caption {
-  position: absolute;
-  right: 15%;
-  left: 15%;
-  bottom: 35%;
-  z-index: 10;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  color: #fff;
-  text-align: center;
+.bg-grey {
+  background-color: #e1e2da;
 }
 
-.social-icons a {
-  display: inline-block;
-  height: 3.5rem;
-  width: 3.5rem;
-  background-color: #495057;
-  color: #fff !important;
-  border-radius: 100%;
+@media screen and (max-width: 600px) {
+  .desktop-only {
+    visibility: hidden;
+  }
 }
 
-.social-icon i {
-  position: relative;
-  top: 0.8rem;
-  font-size: 1.75rem;
+.collapse-icon {
+  color: #333333;
+  font-size: 4rem;
 }
 
-.program-icon:hover {
-  width: 0;
-  height: 0;
-  padding: 64px 0 0 64px;
+.collapse-arrow-down {
+  transform: rotate(0deg);
+  transition: transform 0.35s ease-in;
 }
 
-.program-icons .icon-csharp {
-  background: url(/img/csharp/csharp_hover.png);
-}
-
-.program-icons .icon-kotlin {
-  background: url(/img/kotlin/Kotlin_hover.png);
-}
-
-.program-icons .icon-js {
-  background: url(/img/js/js_hover.png);
-}
-
-.program-icons .icon-ts {
-  background: url(/img/ts/ts_hover.png);
-}
-
-.program-icons .icon-html {
-  background: url(/img/html/html-5-icon_hover.png);
-}
-
-.program-icons .icon-css {
-  background: url(/img/css/css_hover.png);
-}
-
-.program-icons .icon-xml {
-  background: url(/img/xml/xml_hover.png);
-}
-
-.program-icons .icon-vue {
-  background: url(/img/vue/vuejs_hover.png);
-}
-
-.social-icons a:last-child {
-  margin-right: 0;
-}
-
-.social-icons a:hover {
-  background-color: #62686e;
+.collapse-arrow-down.open {
+  transform: rotate(180deg);
+  transition: transform 0.35s ease-in;
 }
 
 .contact-icon i {
@@ -103,10 +42,5 @@
 }
 
 .contact-icon i:hover {
-  color: #fff;
-}
-
-.lead-s {
-  font-size: 1rem;
-  font-weight: 300;
+  color: #c4c4b8;
 }

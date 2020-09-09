@@ -1,6 +1,14 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="Benjamin" />
+
+  <title>Bvanderwolf Home</title>
+
   <link rel="shortcut icon" href="img/devicon.png" />
   <link rel="stylesheet" href="css/bootstrap.css" />
   <link rel="stylesheet" href="css/custom.css" />
@@ -9,7 +17,7 @@
   <script src="/js/navBarConstructor.js"></script>
 </head>
 
-<body class="standard-background">
+<body class="bg-grey">
   <!-- Navigation is loaded in through nav bar constructor script -->
   <div id="navigation"></div>
   <script>
@@ -17,125 +25,285 @@
     LoadNavBarASync("Home");
   </script>
 
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="10000">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner" role="listbox">
-        <!-- Slide One - Set the background image for this slide in the line below -->
-        <div class="carousel-item active">
-          <div class="carousel-custom-caption d-none d-md-block">
-            <h2 class="display-3  ">
-              Benjamin van
-              <span class="display-3 ">der Wolf</span>
-            </h2>
-            <p class="lead text-justify ">
-              An IT enthusiast studying Game Development at the University Of Applied Sciences in Amsterdam.
-              I am a good independent worker having a lot of experience working in groups, using systems like git for version
-              control and collaborative methods like agile and waterfall. Having worked at ING as Jr IT Specialist i am
-              able to easily
-              communicate my work with colleagues and/or stakeholders. Having worked part-time next to doing a bachelor
-              in
-              Game-Development, i am able to work in a structured manner.
-            </p>
-          </div>
+  <header>
+    <div class="container text-center">
+      <h1>Welcome to my Github site</h1>
+      <p class="lead">Here i display all my past projects, research and packages i have worked on</p>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="container">
+      <h2 class="text-center">About Me</h2>
+      <div class="row">
+        <div class="col-lg-6 my-auto">
+          <img class="rounded" src="img/projects/Self.jpeg" width="100%" alt="" />
         </div>
-        <!-- Slide Two - Set the background image for this slide in the line below -->
-        <div class="carousel-item">
-          <div class="carousel-custom-caption d-none d-md-block">
-            <h2 class="display-3 mb-2">Work Experience</h2>
-            <div class="mb-1">
-              <h3 class="display-5"">2nd Year Internship</h3>
-                <p class=" lead text-justify ">
-                In my second year i started an intership at ING in Amsterdam. Here i worked on multiple projects learning about
-                virtual reality development and networking in the Unity Engine. Using VR i learned working with the HTC Vive and
-                its scensors. I also learned using Photon which is an Networking Framework for Unity 3D
-                </p>
-              </div>
-              <div>
-                <h3 class=" display-5"">Jr IT Specialist-Application</h3>
-              <p class="lead text-justify ">
-                At the end of my internship i got to work at ING as an Jr It Specialist-Application developer. Working
-                at Research
-                and Development, i worked together with a Quantum Engineer to bridge the gap between the Textbook
-                Quantum Algorithms
-                and Business & IT. Work included making a gamified software product that teaches users the basics of
-                quantum computing,
-                discussing this project with stakeholders and presenting this product on events and workshops.
-              </p>
-            </div>
-          </div>
+        <div class="col-lg-6 mx-auto">
+          <p class="lead">
+            I am an IT enthusiast studying Game Development at the University Of Applied Sciences in Amsterdam. I have
+            most experience with these
+            concepts:
+          </p>
+          <ul>
+            <li>Unity Game Engine with a focus on the C# language and component oriented programming</li>
+            <li>Basic webgame development as a Jr IT Specialist-Application Developer at ING</li>
+            <li>Game programming at a level of understanding data structures and usage of design patterns from jobs,
+              multiple
+              school projects and interships</li>
+            <li>Multiplayer game programming as ING intern and as a student writing a paper using Photon Unity3D
+              Networking Framework</li>
+            <li>Communication of IT and Quantum Technology doing events for ING's Research And Development Department
+            </li>
+          </ul>
         </div>
-        <!-- Slide Three - Set the background image for this slide in the line below -->
-        <div class="carousel-item">
-          <div class="carousel-custom-caption d-none d-md-block">
-            <h2 class="display-3 mb-2">SKILLS</h2>
-            <h3 class="display-5 mb-3">Programming Tools</h3>
-            <div class="social-icons mb-5">
-              <a class="social-icon" href="https://www.github.com/Bvanderwolf" target="_blank">
-                <i class="fab fa-git"></i>
-              </a>
-              <a class="social-icon" href="https://www.github.com/Bvanderwolf/GameHub" target="_blank">
-                <i class="fab fa-unity"></i>
-              </a>
-              <a class="social-icon" href="https://www.github.com/Bvanderwolf/MathRecycler" target="_blank">
-                <i class="fab fa-android"></i>
-              </a>
-              <a class="social-icon" href="https://www.github.com/Bvanderwolf/bvanderwolf.github.io" target="_blank">
-                <i class="fab fa-bootstrap"></i>
-              </a>
-            </div>
-            <h3 class="display-5 mb-3">Programming Languages</h3>
-            <div class="container-fluid">
-              <div class="row program-icons">
-                <div class="col-sm-2">
-                  <img class="program-icon icon-csharp" src="img/csharp/csharp_default.png" alt="">
-                  <p>CSharp</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <div class="row mb-3">
+        <div class="col-sm-12">
+          <h2 class="text-center">Projects</h2>
+          <div>
+            <div class="card card-body">
+              <h3 class="text-center">Hunter Gatherers</h3>
+              <div class="row">
+                <div class="col-xs-8 col-sm-6 mt-auto">
+                  <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/T92sDwTVitk"
+                      frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen></iframe>
+                  </div>
                 </div>
-                <div class="col-sm-2">
-                  <img class="program-icon icon-kotlin" src="img/kotlin/Kotlin_default.png" alt="">
-                  <p>Kotlin</p>
-                </div>
-                <div class="col-sm-2">
-                  <img class="program-icon icon-js" src="img/js/js_default.png" alt="">
-                  <p>Javascript</p>
-                </div>
-                <div class="col-sm-2">
-                  <img class="program-icon icon-ts" src="img/ts/ts_default.png" alt="">
-                  <p>Typescript</p>
-                </div>
-                <div class="col-sm-2">
-                  <img class="program-icon icon-html" src="img/html/html-5_default.png" alt="">
-                  <p>HTML</p>
-                </div>
-                <div class="col-sm-2">
-                  <img class="program-icon icon-css" src="img/css/css_default.png" alt="">
-                  <p>CSS</p>
-                </div>
-                <div class="col-sm-2">
-                  <img class="program-icon icon-xml" src="img/xml/xml_default.png" alt="">
-                  <p>XML</p>
-                </div>
-                <div class="col-sm-2">
-                  <img class="program-icon icon-vue" src="img/vue/vuejs_default.png" alt="">
-                  <p>Vue</p>
+                <div class="col-xs-4 col-sm-6 project-text">
+                  <p>
+                    Hunter Gatherers is a multiplayer real-time strategy game in which you try to survive on a island
+                    that is flooding. Your goal is
+                    to be the last tribe standing. You gather resources, place down your camp to rest and craft, and
+                    then pack it back up to outrun
+                    the flood. The game was made for a schoolproject with a team of 4 in 8 weeks, and is to continued by
+                    future student
+                    teams.
+                  </p>
+                  <p>
+                    During the project my main job was to provide the multiplayer functionalities to the game. This
+                    included connecting and joining
+                    rooms, seperated player properties, raising events, synchonization of game objects, pooling and
+                    raising of request. I wrapped
+                    all these functionalities into one big wrapper class to make switching multiplayer libraries a lot
+                    easier aswell. Additionaly, i
+                    worked on juicing the game with things like particles, animations and the like.
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
+      <div class="row mb-3">
+        <div class="col-sm-12">
+          <div>
+            <div class="card card-body">
+              <h3 class="text-center">MultiplayerRacer</h3>
+              <div class="row">
+                <div class="col-xs-8 col-sm-6 mt-auto">
+                  <img class="rounded" src="img/projects/MultiplayerRacer.png" width="100%" alt="" />
+                </div>
+                <div class="col-xs-4 col-sm-6 project-text">
+                  <p>
+                    How do I create a 2d multiplayer racing game with lag and packet loss compensation and
+                    desync-avoidance?
+                    This was the research
+                    question i posed for a school assignment i did as a GameDevelopment student at the University Of
+                    Applied Sciences in Amsterdam. To find this out i
+                    took a look at the Photon Unity3D Networking Framework and created a project using Photon for the
+                    Unity
+                    Engine, to research this
+                    very topic.
+                  </p>
+                  <p>
+                    During the project i researched a variety of subjects:
+                  <ul>
+                    <li>Multiplayer programming using the Photon Framework</li>
+                    <li>DeadReckoning</li>
+                    <li>2D Game Development in Unity</li>
+                  </ul>
+                  </p>
+                  <p> The paper can be found on my
+                    <a style="color: #333333; font-style: italic;"
+                      href="https://bvanderwolf.github.io/pages/UnityNetworkingResearch.html"
+                      target="_blank">github-website</a>
+                  </p>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-12">
+          <div>
+            <div class="card card-body">
+              <h3 class="text-center">Qboard game</h3>
+              <div class="row">
+                <div class="col-xs-8 col-sm-6 mt-auto">
+                  <img class="rounded" src="img/projects/QuantumPuzzle.png" width="100%" alt="" />
+                </div>
+                <div class="col-xs-4 col-sm-6">
+                  <p class="project-text">
+                    Working at ING as a Jr IT Specialist-Application Developer i was part of a team working on an web
+                    application to
+                    communicate the basics of quantum computing. I did this together with a Quantum Engineering, a game
+                    designer and
+                    another game programmer. During the progression of this application i presented the progress to
+                    stakeholders at ING
+                    and on events in holland and in belgium.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-12">
+          <div>
+            <div class="card card-body">
+              <h3 class="text-center">The Boat Game</h3>
+              <div class="row">
+                <div class="col-xs-8 col-sm-6 mt-auto">
+                  <img class="rounded" src="img/projects/BoatGame.png" width="100%" alt="" />
+                </div>
+                <div class="col-xs-4 col-sm-6 project-text">
+                  <p>
+                    As an intern at ING's Research and Development department i worked on a game to be used as a team
+                    building
+                    exercise called "The Boat Game". All players where assigned a role on a ship after which the crew
+                    had to
+                    complete a variety of quests while remaining afloat. This game's first version was build together
+                    with another intern and
+                    an employee at ING after which another intern group juiced up the game with animations, updated
+                    models and VFX.
+                  </p>
+                  <p>
+                    During the project i used a variety of libraries and techniques:
+                  <ul>
+                    <li>Multiplayer programming using the Photon Framework</li>
+                    <li>VR development in Unity using SteamVR</li>
+                    <li>Git for version control</li>
+                    <li>Trello for workflow</li>
+                  </ul>
+                  </p>
+                  <p>Durint this time i also wrote a research paper on delegates in C#</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-12">
+          <div>
+            <div class="card card-body">
+              <h3 class="text-center">MathRecycler</h3>
+              <div class="row">
+                <div class="col-xs-8 col-sm-6 mt-auto">
+                  <img class="rounded" src="img/projects/mathrecycler.png" width="100%" alt="" />
+                </div>
+                <div class="col-xs-4 col-sm-6 project-text">
+                  <p>
+                    Developed with kotlin in android studio, the mathrecycler is a simple game where you make decisions
+                    swiping a math statement
+                    right or left, asserting it to be true or false. You are able to customize difficulty and math
+                    operator and look at played games
+                    in your history list.
+                  </p>
+                  <p>
+                    During the project i used a variety of libraries and techniques:
+                  <ul>
+                    <li>Activities and Fragments</li>
+                    <li>ROOM local storage with Repositories</li>
+                    <li>Viewmodels and LiveData</li>
+                    <li>Remote data using the NumbersAPI</li>
+                    <li>Animations using Lottie Animation</li>
+                  </ul>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-12">
+          <div>
+            <div class="card card-body">
+              <h3 class="text-center">Content Management System</h3>
+              <div class="row">
+                <div class="col-xs-8 col-sm-6 mt-auto">
+                  <img class="rounded" src="img/projects/cms_main.png" width="100%" alt="" />
+                </div>
+                <div class="col-xs-4 col-sm-6 project-text">
+                  <p>
+                    Made using github pages with 4 other students at the University Of Applied Sciences in Amsterdam,
+                    this project was my
+                    first ever web development project. It was part of a 3 part system architecture. It's purpose was to
+                    upload 3D models to the github repository through the
+                    github API. Another website could then fetch these models and show them in Augmented Reality on
+                    the web
+                  </p>
+                  <p>
+                    During the project i used a variety of libraries and techniques:
+                  <ul>
+                    <li>VueJs</li>
+                    <li>Git for version control</li>
+                    <li>Github REST API</li>
+                    <li>Bootstrap</li>
+                  </ul>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-12">
+          <div>
+            <div class="card card-body">
+              <h3 class="text-center">GameHub</h3>
+              <div class="row">
+                <div class="col-xs-8 col-sm-6 mt-auto">
+                  <img class="rounded" src="img/projects/GameHub.png" width="100%" alt="" />
+                </div>
+                <div class="col-xs-4 col-sm-6 project-text">
+                  <p>
+                    Developed in Unity Engine, this is the first hobby project i finished. It contains 4 games: Snake,
+                    Breakout, MatchThree and TicTacToe. It also contains a menu from where you can pick the game you
+                    want to play. Programmed in C#, this project was meant to try to out some new techniques i had
+                    learned.
+                  </p>
+                  <p>
+                    During the project i used a variety of libraries and techniques:
+                  <ul>
+                    <li>Singleton Pattern</li>
+                    <li>Generics</li>
+                    <li>C# events</li>
+                    <li>C# delegates, lambda and anonymous functions</li>
+                  </ul>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
 
   <script src="js/jQuery.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
