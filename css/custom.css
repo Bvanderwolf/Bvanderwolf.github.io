@@ -6,6 +6,11 @@ section {
   padding: 150px 0;
 }
 
+.navbar-custom-brand{
+  font-size: 2rem;
+  font-weight: 300;
+}
+
 .project-text {
   font-size: 1rem;
   font-weight: 300;
@@ -40,6 +45,24 @@ section {
   transform: rotate(180deg);
   transition: transform 0.35s ease-in;
 }
+
+.nav-contact-icon{
+  margin-right: 30px;
+  color: rgb(0, 0, 0);
+  
+}
+
+.nav-contact-icon i{
+  font-size: 2.25rem;
+}
+.nav-contact-icon span{
+  font-size: 1.5rem;
+}
+
+.nav-contact-icon:hover{
+  color: #c4c4b8;
+}
+
 
 .contact-icon i {
   color: rgb(0, 0, 0);

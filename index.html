@@ -9,297 +9,397 @@
 
   <title>Bvanderwolf Home</title>
 
-  <link rel="shortcut icon" href="img/devicon.png" />
-  <link rel="stylesheet" href="css/bootstrap.css" />
-  <link rel="stylesheet" href="css/custom.css" />
-  <link rel="stylesheet" href="fontawesome/all.css">
+  <link rel="shortcut icon" href="/img/devicon.png" />
+  <link rel="stylesheet" href="/css/bootstrap.css" />
+  <link rel="stylesheet" href="/css/navbarstyles.css" />
+  <link rel="stylesheet" href="/css/custom.css">
+  <link rel="stylesheet" href="/fontawesome/all.css" />
 
-  <script src="/js/navBarConstructor.js"></script>
 </head>
 
 <body class="bg-grey">
-  <!-- Navigation is loaded in through nav bar constructor script -->
-  <div id="navigation"></div>
-  <script>
-    //make sure argument corresponds to link text (inline html of a tag)
-    LoadNavBarASync("Home");
-  </script>
-
-  <header>
-    <div class="container text-center">
-      <h1>Welcome to my Github site</h1>
-      <p class="lead">A portfolio about me and my work</p>
-    </div>
-  </header>
-
-  <section id="about">
-    <div class="container">
-      <h2 class="text-center">About Me</h2>
-      <div class="row">
-        <div class="col-lg-6 my-auto">
-          <img class="rounded" src="img/projects/Self.jpeg" width="100%" alt="" />
-        </div>
-        <div class="col-lg-6 mx-auto">
-          <p class="lead">
-            I am an IT enthusiast studying Game Development at the University Of Applied Sciences in Amsterdam. I have
-            most experience with these
-            concepts:
-          </p>
-          <ul>
-            <li>Unity Game Engine with a focus on the C# language and component oriented programming</li>
-            <li>Basic webgame development as a Jr IT Specialist-Application Developer at ING</li>
-            <li>Game programming at a level of understanding data structures and usage of design patterns from jobs,
-              multiple
-              school projects and interships</li>
-            <li>Multiplayer game programming as ING intern and as a student writing a paper using Photon Unity3D
-              Networking Framework</li>
-            <li>Communication of IT and Quantum Technology doing events for ING's Research And Development Department
-            </li>
-          </ul>
-        </div>
+  <div class="wrapper">
+    <!-- Sidebar Holder -->
+    <nav id="sidebar">
+      <div class="sidebar-header">
+        <div class="navbar-custom-brand">Bvanderwolf</div>
       </div>
-    </div>
-  </section>
 
-  <section id="projects">
-    <div class="container">
-      <div class="row mb-3">
-        <div class="col-sm-12">
-          <h2 class="text-center">Projects</h2>
-          <div>
-            <div class="card card-body">
-              <h3 class="text-center">Hunter Gatherers</h3>
-              <div class="row">
-                <div class="col-xs-8 col-sm-6 mt-auto">
-                  <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/T92sDwTVitk"
-                      frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen></iframe>
+      <ul class="list-unstyled components">
+        <li class="active">
+          <a href="/index.html">Home</a>
+        </li>
+        <li>
+          <a href="/pages/UnityNetworkingResearch.html">Research</a>
+        </li>
+        <li>
+          <a href="/pages/Packages.html">Packages</a>
+        </li>
+        <li>
+          <a href="/pages/featuredGists.html">Gists</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Page Content Holder -->
+    <div id="content">
+
+      <nav class="navbar navbar-expand-xl navbar-light bg-light">
+        <div class="container-fluid">
+          <button type="button" id="sidebarCollapse" class="navbar-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <i class="fas fa-align-justify"></i>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="nav navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-contact-icon" href="https://www.linkedin.com/in/benjamin-van-der-wolf-742305160/"
+                  target="_blank">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-contact-icon" href="mailto: vanderwolf7@gmail.com" target="_blank">
+                  <i class="fa fa-envelope"></i>
+                </a>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-contact-icon" href="https://www.github.com/Bvanderwolf" target="_blank">
+                  <i class="fab fa-github"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container text-center">
+        <h1>Welcome to my Github site</h1>
+        <p class="lead">A portfolio about me and my work</p>
+      </div>
+
+      <section id="about">
+        <div class="container">
+          <h2 class="text-center">About Me</h2>
+          <div class="row">
+            <div class="col-lg-6 my-auto">
+              <img class="rounded" src="img/projects/Self.jpeg" width="100%" alt="" />
+            </div>
+            <div class="col-lg-6 mx-auto">
+              <p class="lead">
+                I am an IT enthusiast studying Game Development at the University Of Applied Sciences in
+                Amsterdam. I have
+                most experience with these
+                concepts:
+              </p>
+              <ul>
+                <li>Unity Game Engine with a focus on the C# language and component oriented programming
+                </li>
+                <li>Basic webgame development as a Jr IT Specialist-Application Developer at ING</li>
+                <li>Game programming at a level of understanding data structures and usage of design
+                  patterns from jobs,
+                  multiple
+                  school projects and interships</li>
+                <li>Multiplayer game programming as ING intern and as a student writing a paper using
+                  Photon Unity3D
+                  Networking Framework</li>
+                <li>Communication of IT and Quantum Technology doing events for ING's Research And
+                  Development Department
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="container">
+          <div class="row mb-3">
+            <div class="col-sm-12">
+              <h2 class="text-center">Projects</h2>
+              <div>
+                <div class="card card-body">
+                  <h3 class="text-center">Hunter Gatherers</h3>
+                  <div class="row">
+                    <div class="col-xs-8 col-sm-6 mt-auto">
+                      <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/T92sDwTVitk"
+                          frameborder="0"
+                          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                          allowfullscreen></iframe>
+                      </div>
+                    </div>
+                    <div class="col-xs-4 col-sm-6 project-text">
+                      <p>
+                        Hunter Gatherers is a multiplayer real-time strategy game in which you
+                        try to survive on a island
+                        that is flooding. Your goal is
+                        to be the last tribe standing. You gather resources, place down your
+                        camp to rest and craft, and
+                        then pack it back up to outrun
+                        the flood. The game was made for a schoolproject with a team of 4 in 8
+                        weeks, and is to continued by
+                        future student
+                        teams.
+                      </p>
+                      <p>
+                        During the project my main job was to provide the multiplayer
+                        functionalities to the game. This
+                        included connecting and joining
+                        rooms, seperated player properties, raising events, synchonization of
+                        game objects, pooling and
+                        raising of request. I wrapped
+                        all these functionalities into one big wrapper class to make switching
+                        multiplayer libraries a lot
+                        easier aswell. Additionaly, i
+                        worked on juicing the game with things like particles, animations and
+                        the like.
+                      </p>
+                    </div>
                   </div>
                 </div>
-                <div class="col-xs-4 col-sm-6 project-text">
-                  <p>
-                    Hunter Gatherers is a multiplayer real-time strategy game in which you try to survive on a island
-                    that is flooding. Your goal is
-                    to be the last tribe standing. You gather resources, place down your camp to rest and craft, and
-                    then pack it back up to outrun
-                    the flood. The game was made for a schoolproject with a team of 4 in 8 weeks, and is to continued by
-                    future student
-                    teams.
-                  </p>
-                  <p>
-                    During the project my main job was to provide the multiplayer functionalities to the game. This
-                    included connecting and joining
-                    rooms, seperated player properties, raising events, synchonization of game objects, pooling and
-                    raising of request. I wrapped
-                    all these functionalities into one big wrapper class to make switching multiplayer libraries a lot
-                    easier aswell. Additionaly, i
-                    worked on juicing the game with things like particles, animations and the like.
-                  </p>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-sm-12">
+              <div>
+                <div class="card card-body">
+                  <h3 class="text-center">MultiplayerRacer</h3>
+                  <div class="row">
+                    <div class="col-xs-8 col-sm-6 mt-auto">
+                      <img class="rounded" src="img/projects/MultiplayerRacer.png" width="100%" alt="" />
+                    </div>
+                    <div class="col-xs-4 col-sm-6 project-text">
+                      <p>
+                        How do I create a 2d multiplayer racing game with lag and packet loss
+                        compensation and
+                        desync-avoidance?
+                        This was the research
+                        question i posed for a school assignment i did as a GameDevelopment
+                        student at the University Of
+                        Applied Sciences in Amsterdam. To find this out i
+                        took a look at the Photon Unity3D Networking Framework and created a
+                        project using Photon for the
+                        Unity
+                        Engine, to research this
+                        very topic.
+                      </p>
+                      <p>
+                        During the project i researched a variety of subjects:
+                      <ul>
+                        <li>Multiplayer programming using the Photon Framework</li>
+                        <li>DeadReckoning</li>
+                        <li>2D Game Development in Unity</li>
+                      </ul>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-sm-12">
+              <div>
+                <div class="card card-body">
+                  <h3 class="text-center">Qboard game</h3>
+                  <div class="row">
+                    <div class="col-xs-8 col-sm-6 mt-auto">
+                      <img class="rounded" src="img/projects/QuantumPuzzle.png" width="100%" alt="" />
+                    </div>
+                    <div class="col-xs-4 col-sm-6">
+                      <p class="project-text">
+                        Working at ING as a Jr IT Specialist-Application Developer i was part of
+                        a team working on an web
+                        application to
+                        communicate the basics of quantum computing. I did this together with a
+                        Quantum Engineering, a game
+                        designer and
+                        another game programmer. During the progression of this application i
+                        presented the progress to
+                        stakeholders at ING
+                        and on events in holland and in belgium.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-sm-12">
+              <div>
+                <div class="card card-body">
+                  <h3 class="text-center">The Boat Game</h3>
+                  <div class="row">
+                    <div class="col-xs-8 col-sm-6 mt-auto">
+                      <img class="rounded" src="img/projects/BoatGame.png" width="100%" alt="" />
+                    </div>
+                    <div class="col-xs-4 col-sm-6 project-text">
+                      <p>
+                        As an intern at ING's Research and Development department i worked on a
+                        game to be used as a team
+                        building
+                        exercise called "The Boat Game". All players where assigned a role on a
+                        ship after which the crew
+                        had to
+                        complete a variety of quests while remaining afloat. This game's first
+                        version was build together
+                        with another intern and
+                        an employee at ING after which another intern group juiced up the game
+                        with animations, updated
+                        models and VFX.
+                      </p>
+                      <p>
+                        During the project i used a variety of libraries and techniques:
+                      <ul>
+                        <li>Multiplayer programming using the Photon Framework</li>
+                        <li>VR development in Unity using SteamVR</li>
+                        <li>Git for version control</li>
+                        <li>Trello for workflow</li>
+                      </ul>
+                      </p>
+                      <p>Durint this time i also wrote a research paper on delegates in C#</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-sm-12">
+              <div>
+                <div class="card card-body">
+                  <h3 class="text-center">MathRecycler</h3>
+                  <div class="row">
+                    <div class="col-xs-8 col-sm-6 mt-auto">
+                      <img class="rounded" src="img/projects/mathrecycler.png" width="100%" alt="" />
+                    </div>
+                    <div class="col-xs-4 col-sm-6 project-text">
+                      <p>
+                        Developed with kotlin in android studio, the mathrecycler is a simple
+                        game where you make decisions
+                        swiping a math statement
+                        right or left, asserting it to be true or false. You are able to
+                        customize difficulty and math
+                        operator and look at played games
+                        in your history list.
+                      </p>
+                      <p>
+                        During the project i used a variety of libraries and techniques:
+                      <ul>
+                        <li>Activities and Fragments</li>
+                        <li>ROOM local storage with Repositories</li>
+                        <li>Viewmodels and LiveData</li>
+                        <li>Remote data using the NumbersAPI</li>
+                        <li>Animations using Lottie Animation</li>
+                      </ul>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-sm-12">
+              <div>
+                <div class="card card-body">
+                  <h3 class="text-center">Content Management System</h3>
+                  <div class="row">
+                    <div class="col-xs-8 col-sm-6 mt-auto">
+                      <img class="rounded" src="img/projects/cms_main.png" width="100%" alt="" />
+                    </div>
+                    <div class="col-xs-4 col-sm-6 project-text">
+                      <p>
+                        Made using github pages with 4 other students at the University Of
+                        Applied Sciences in Amsterdam,
+                        this project was my
+                        first ever web development project. It was part of a 3 part system
+                        architecture. It's purpose was to
+                        upload 3D models to the github repository through the
+                        github API. Another website could then fetch these models and show them
+                        in Augmented Reality on
+                        the web
+                      </p>
+                      <p>
+                        During the project i used a variety of libraries and techniques:
+                      <ul>
+                        <li>VueJs</li>
+                        <li>Git for version control</li>
+                        <li>Github REST API</li>
+                        <li>Bootstrap</li>
+                      </ul>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-sm-12">
+              <div>
+                <div class="card card-body">
+                  <h3 class="text-center">GameHub</h3>
+                  <div class="row">
+                    <div class="col-xs-8 col-sm-6 mt-auto">
+                      <img class="rounded" src="img/projects/GameHub.png" width="100%" alt="" />
+                    </div>
+                    <div class="col-xs-4 col-sm-6 project-text">
+                      <p>
+                        Developed in Unity Engine, this is the first hobby project i finished.
+                        It contains 4 games: Snake,
+                        Breakout, MatchThree and TicTacToe. It also contains a menu from where
+                        you can pick the game you
+                        want to play. Programmed in C#, this project was meant to try to out
+                        some new techniques i had
+                        learned.
+                      </p>
+                      <p>
+                        During the project i used a variety of libraries and techniques:
+                      <ul>
+                        <li>Singleton Pattern</li>
+                        <li>Generics</li>
+                        <li>C# events</li>
+                        <li>C# delegates, lambda and anonymous functions</li>
+                      </ul>
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="row mb-3">
-        <div class="col-sm-12">
-          <div>
-            <div class="card card-body">
-              <h3 class="text-center">MultiplayerRacer</h3>
-              <div class="row">
-                <div class="col-xs-8 col-sm-6 mt-auto">
-                  <img class="rounded" src="img/projects/MultiplayerRacer.png" width="100%" alt="" />
-                </div>
-                <div class="col-xs-4 col-sm-6 project-text">
-                  <p>
-                    How do I create a 2d multiplayer racing game with lag and packet loss compensation and
-                    desync-avoidance?
-                    This was the research
-                    question i posed for a school assignment i did as a GameDevelopment student at the University Of
-                    Applied Sciences in Amsterdam. To find this out i
-                    took a look at the Photon Unity3D Networking Framework and created a project using Photon for the
-                    Unity
-                    Engine, to research this
-                    very topic.
-                  </p>
-                  <p>
-                    During the project i researched a variety of subjects:
-                  <ul>
-                    <li>Multiplayer programming using the Photon Framework</li>
-                    <li>DeadReckoning</li>
-                    <li>2D Game Development in Unity</li>
-                  </ul>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row mb-3">
-        <div class="col-sm-12">
-          <div>
-            <div class="card card-body">
-              <h3 class="text-center">Qboard game</h3>
-              <div class="row">
-                <div class="col-xs-8 col-sm-6 mt-auto">
-                  <img class="rounded" src="img/projects/QuantumPuzzle.png" width="100%" alt="" />
-                </div>
-                <div class="col-xs-4 col-sm-6">
-                  <p class="project-text">
-                    Working at ING as a Jr IT Specialist-Application Developer i was part of a team working on an web
-                    application to
-                    communicate the basics of quantum computing. I did this together with a Quantum Engineering, a game
-                    designer and
-                    another game programmer. During the progression of this application i presented the progress to
-                    stakeholders at ING
-                    and on events in holland and in belgium.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row mb-3">
-        <div class="col-sm-12">
-          <div>
-            <div class="card card-body">
-              <h3 class="text-center">The Boat Game</h3>
-              <div class="row">
-                <div class="col-xs-8 col-sm-6 mt-auto">
-                  <img class="rounded" src="img/projects/BoatGame.png" width="100%" alt="" />
-                </div>
-                <div class="col-xs-4 col-sm-6 project-text">
-                  <p>
-                    As an intern at ING's Research and Development department i worked on a game to be used as a team
-                    building
-                    exercise called "The Boat Game". All players where assigned a role on a ship after which the crew
-                    had to
-                    complete a variety of quests while remaining afloat. This game's first version was build together
-                    with another intern and
-                    an employee at ING after which another intern group juiced up the game with animations, updated
-                    models and VFX.
-                  </p>
-                  <p>
-                    During the project i used a variety of libraries and techniques:
-                  <ul>
-                    <li>Multiplayer programming using the Photon Framework</li>
-                    <li>VR development in Unity using SteamVR</li>
-                    <li>Git for version control</li>
-                    <li>Trello for workflow</li>
-                  </ul>
-                  </p>
-                  <p>Durint this time i also wrote a research paper on delegates in C#</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row mb-3">
-        <div class="col-sm-12">
-          <div>
-            <div class="card card-body">
-              <h3 class="text-center">MathRecycler</h3>
-              <div class="row">
-                <div class="col-xs-8 col-sm-6 mt-auto">
-                  <img class="rounded" src="img/projects/mathrecycler.png" width="100%" alt="" />
-                </div>
-                <div class="col-xs-4 col-sm-6 project-text">
-                  <p>
-                    Developed with kotlin in android studio, the mathrecycler is a simple game where you make decisions
-                    swiping a math statement
-                    right or left, asserting it to be true or false. You are able to customize difficulty and math
-                    operator and look at played games
-                    in your history list.
-                  </p>
-                  <p>
-                    During the project i used a variety of libraries and techniques:
-                  <ul>
-                    <li>Activities and Fragments</li>
-                    <li>ROOM local storage with Repositories</li>
-                    <li>Viewmodels and LiveData</li>
-                    <li>Remote data using the NumbersAPI</li>
-                    <li>Animations using Lottie Animation</li>
-                  </ul>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row mb-3">
-        <div class="col-sm-12">
-          <div>
-            <div class="card card-body">
-              <h3 class="text-center">Content Management System</h3>
-              <div class="row">
-                <div class="col-xs-8 col-sm-6 mt-auto">
-                  <img class="rounded" src="img/projects/cms_main.png" width="100%" alt="" />
-                </div>
-                <div class="col-xs-4 col-sm-6 project-text">
-                  <p>
-                    Made using github pages with 4 other students at the University Of Applied Sciences in Amsterdam,
-                    this project was my
-                    first ever web development project. It was part of a 3 part system architecture. It's purpose was to
-                    upload 3D models to the github repository through the
-                    github API. Another website could then fetch these models and show them in Augmented Reality on
-                    the web
-                  </p>
-                  <p>
-                    During the project i used a variety of libraries and techniques:
-                  <ul>
-                    <li>VueJs</li>
-                    <li>Git for version control</li>
-                    <li>Github REST API</li>
-                    <li>Bootstrap</li>
-                  </ul>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row mb-3">
-        <div class="col-sm-12">
-          <div>
-            <div class="card card-body">
-              <h3 class="text-center">GameHub</h3>
-              <div class="row">
-                <div class="col-xs-8 col-sm-6 mt-auto">
-                  <img class="rounded" src="img/projects/GameHub.png" width="100%" alt="" />
-                </div>
-                <div class="col-xs-4 col-sm-6 project-text">
-                  <p>
-                    Developed in Unity Engine, this is the first hobby project i finished. It contains 4 games: Snake,
-                    Breakout, MatchThree and TicTacToe. It also contains a menu from where you can pick the game you
-                    want to play. Programmed in C#, this project was meant to try to out some new techniques i had
-                    learned.
-                  </p>
-                  <p>
-                    During the project i used a variety of libraries and techniques:
-                  <ul>
-                    <li>Singleton Pattern</li>
-                    <li>Generics</li>
-                    <li>C# events</li>
-                    <li>C# delegates, lambda and anonymous functions</li>
-                  </ul>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      </section>
     </div>
-  </section>
+  </div>
 
-  <script src="js/jQuery.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
+  <!-- Popper.JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+    integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+    crossorigin="anonymous"></script>
+  <script src="/js/jQuery.min.js"></script>
+  <script src="/js/bootstrap.bundle.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar').toggleClass('active');
+        $(this).toggleClass('active');
+      });
+    });
+  </script>
 </body>
 
 </html>

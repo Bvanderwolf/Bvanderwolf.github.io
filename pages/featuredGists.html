@@ -11,78 +11,153 @@
 
     <link rel="shortcut icon" href="/img/devicon.png" />
     <link rel="stylesheet" href="/css/bootstrap.css" />
-    <link rel="stylesheet" href="/css/custom.css" />
+    <link rel="stylesheet" href="/css/navbarstyles.css" />
+    <link rel="stylesheet" href="/css/custom.css">
     <link rel="stylesheet" href="/fontawesome/all.css" />
 
-    <script src="/js/navBarConstructor.js"></script>
 </head>
 
 <body class="bg-grey">
-    <!-- Navigation is loaded in through nav bar constructor script -->
-    <div id="navigation"></div>
-    <script>
-        //make sure argument corresponds to link text (inline html of a tag)
-        LoadNavBarASync("Gists");
-    </script>
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <div class="navbar-custom-brand">Bvanderwolf</div>
+            </div>
 
-    <div class="container">
-        <div class="row h-50 align-items-center mb-5">
-            <div class="col text-center">
-                <h1>Featured Gists</h1>
-            </div>
-        </div>
-        <div class="row mb-3">
-            <div class="col-md-1"></div>
-            <div class="col-md-10">
-                <div class="card mb-3">
-                    <div class="card-header text-center lead">LerpValue</div>
-                    <div class="card-body">
-                        <script src="https://gist.github.com/Bvanderwolf/fd425d93c08e2ae0ffc18caa88c725ed.js"></script>
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="/index.html">Home</a>
+                </li>
+                <li>
+                    <a href="/pages/UnityNetworkingResearch.html">Research</a>
+                </li>
+                <li>
+                    <a href="/pages/Packages.html">Packages</a>
+                </li>
+                <li class="active">
+                    <a href="/pages/featuredGists.html">Gists</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content Holder -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-xl navbar-light bg-light">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="navbar-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-contact-icon"
+                                    href="https://www.linkedin.com/in/benjamin-van-der-wolf-742305160/" target="_blank">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-contact-icon" href="mailto: vanderwolf7@gmail.com" target="_blank">
+                                    <i class="fa fa-envelope"></i>
+                                </a>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-contact-icon" href="https://www.github.com/Bvanderwolf" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-1"></div>
-        </div>
-        <div class="row mb-3">
-            <div class="col-md-1"></div>
-            <div class="col-md-10">
-                <div class="card mb-3">
-                    <div class="card-header text-center lead">PingPongValue</div>
-                    <div class="card-body">
-                        <script src="https://gist.github.com/Bvanderwolf/32c361f22b1bb89518bcd6546fb75c50.js"></script>
+            </nav>
+
+            <div class="container">
+                <div class="row h-50 align-items-center mb-5">
+                    <div class="col text-center">
+                        <h1>Featured Gists</h1>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-1"></div>
-        </div>
-        <div class="row mb-3">
-            <div class="col-md-1"></div>
-            <div class="col-md-10">
-                <div class="card mb-3">
-                    <div class="card-header text-center lead">DuckingBehaviour</div>
-                    <div class="card-body">
-                        <script src="https://gist.github.com/Bvanderwolf/e372fafc79165d66e579ba0577360c44.js"></script>
+                <div class="row mb-3">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="card mb-3">
+                            <div class="card-header text-center lead">LerpValue</div>
+                            <div class="card-body">
+                                <script
+                                    src="https://gist.github.com/Bvanderwolf/fd425d93c08e2ae0ffc18caa88c725ed.js"></script>
+                            </div>
+                        </div>
                     </div>
+                    <div class="col-md-1"></div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="card mb-3">
+                            <div class="card-header text-center lead">PingPongValue</div>
+                            <div class="card-body">
+                                <script
+                                    src="https://gist.github.com/Bvanderwolf/32c361f22b1bb89518bcd6546fb75c50.js"></script>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="card mb-3">
+                            <div class="card-header text-center lead">DuckingBehaviour</div>
+                            <div class="card-body">
+                                <script
+                                    src="https://gist.github.com/Bvanderwolf/e372fafc79165d66e579ba0577360c44.js"></script>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="card mb-3">
+                            <div class="card-header text-center lead">ShakeBehaviour</div>
+                            <div class="card-body">
+                                <script
+                                    src="https://gist.github.com/Bvanderwolf/63e82bc3c812f867703b72a913d27924.js"></script>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
                 </div>
             </div>
-            <div class="col-md-1"></div>
-        </div>
-        <div class="row mb-3">
-            <div class="col-md-1"></div>
-            <div class="col-md-10">
-                <div class="card mb-3">
-                    <div class="card-header text-center lead">ShakeBehaviour</div>
-                    <div class="card-body">
-                        <script src="https://gist.github.com/Bvanderwolf/63e82bc3c812f867703b72a913d27924.js"></script>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-1"></div>
         </div>
     </div>
 
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
     <script src="/js/jQuery.min.js"></script>
     <script src="/js/bootstrap.bundle.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+                $(this).toggleClass('active');
+            });
+        });
+    </script>
 </body>
 
 </html>

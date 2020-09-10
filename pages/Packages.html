@@ -11,34 +11,102 @@
 
     <link rel="shortcut icon" href="/img/devicon.png" />
     <link rel="stylesheet" href="/css/bootstrap.css" />
-    <link rel="stylesheet" href="/css/custom.css" />
+    <link rel="stylesheet" href="/css/navbarstyles.css" />
+    <link rel="stylesheet" href="/css/custom.css">
     <link rel="stylesheet" href="/fontawesome/all.css" />
 
-    <script src="/js/navBarConstructor.js"></script>
 </head>
 
 <body class="bg-grey">
-    <!-- Navigation is loaded in through nav bar constructor script -->
-    <div id="navigation"></div>
-    <script>
-        //make sure argument corresponds to link text  (inline html of a tag)
-        LoadNavBarASync("Packages");
-    </script>
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <div class="navbar-custom-brand">Bvanderwolf</div>
+            </div>
 
-    <div class="container">
-        <h1 class="text-center mb-5">Packages</h1>
-        <div id="packages" class="mb-3">
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="/index.html">Home</a>
+                </li>
+                <li>
+                    <a href="/pages/UnityNetworkingResearch.html">Research</a>
+                </li>
+                <li class="active">
+                    <a href="/pages/Packages.html">Packages</a>
+                </li>
+                <li>
+                    <a href="/pages/featuredGists.html">Gists</a>
+                </li>
+            </ul>
+        </nav>
 
+        <!-- Page Content Holder -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-xl navbar-light bg-light">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="navbar-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-contact-icon"
+                                    href="https://www.linkedin.com/in/benjamin-van-der-wolf-742305160/" target="_blank">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-contact-icon" href="mailto: vanderwolf7@gmail.com" target="_blank">
+                                    <i class="fa fa-envelope"></i>
+                                </a>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-contact-icon" href="https://www.github.com/Bvanderwolf" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="container">
+                <h1 class="text-center mb-5">Packages</h1>
+                <div id="packages" class="mb-3">
+
+                </div>
+            </div>
         </div>
     </div>
-    </div>
 
-
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
     <script src="/js/jQuery.min.js"></script>
     <script src="/js/bootstrap.bundle.min.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/showdown@1/dist/showdown.min.js"></script>
     <script src="/js/bwolfpackages.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+                $(this).toggleClass('active');
+            });
+        });
+    </script>
 </body>
 
 </html>
