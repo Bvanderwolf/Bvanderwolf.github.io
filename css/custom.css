@@ -6,6 +6,10 @@ section {
   padding: 150px 0;
 }
 
+p a{
+  text-decoration: underline;
+}
+
 .navbar-custom-brand{
   font-size: 2rem;
   font-weight: 300;
