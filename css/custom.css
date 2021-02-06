@@ -29,6 +29,11 @@ p a{
   background-color: #e1e2da;
 }
 
+.lead-large {
+  font-size: 1.65rem;
+  font-weight: 300;
+}
+
 @media screen and (max-width: 600px) {
   .desktop-only {
     visibility: hidden;
